@@ -129,7 +129,10 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.1-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.15.1-x64-mingw-ucrt)
+      racc (~> 1.4)
     pg (1.5.3)
+    pg (1.5.3-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -185,6 +188,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.29-arm64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.29-x64-mingw-ucrt)
+      railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.3.2)
     turbo-rails (1.4.0)
@@ -193,6 +198,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -212,6 +219,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x64-mingw-ucrt
 
 DEPENDENCIES
   bootsnap
