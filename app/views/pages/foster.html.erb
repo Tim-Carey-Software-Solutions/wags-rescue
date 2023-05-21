@@ -1,4 +1,4 @@
-<h1 class="text-primary text-5xl mb-10">Fostering a Wags Dog</h1>
+<h1 class="text-5xl mb-10 text-primary">Fostering A Wags Dog</h1>
 <div>
   <div>
     <p class="mb-4">
@@ -65,11 +65,18 @@
     </p>
     <p class="mt-4">
       If you are interested in fostering one of our amazing dogs, please fill out our
-      <%= link_to "Wags Foster Application", "#", class: "link link-primary text-lg font-bold" %> and answer all questions that apply.
+      <%= link_to "#", class: "link link-primary text-lg font-bold no-underline" do %>
+        Wags Foster Application
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      <% end %>
+      and answer all questions that apply.
     </p>
     <p class="mt-4 mb-4">
-      If you have any questions, please email
-      our <%= link_to "Fosters Coordinator", "mailto:fosters@wagsrescue.org", class: "link link-primary text-lg font-bold" %>
+      If you have any questions, please email our
+      <%= link_to "mailto:fosters@wagsrescue.org", class: "link link-primary text-lg font-bold no-underline" do %>
+        Fosters Coordinator
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      <% end %>
     </p>
     <small>
       Forgive us if there is sometimes a delay in getting back to your inquiries. We are all volunteers doing our best
