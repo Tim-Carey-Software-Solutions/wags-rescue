@@ -1,4 +1,4 @@
-<div class="navbar z-10">
+<div class="navbar z-10 absolute text-white">
   <div class="navbar-start w-[33rem]">
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -47,7 +47,7 @@
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li tabindex="0"><%= link_to "Home", root_path %></li>
+      <li class="hover:bg-red-700 hover:rounded-lg" tabindex="0"><%= link_to "Home", root_path %></li>
       <!-- And here on desktop views, keep as a dropdown on hover, and have it "Adopt" as a link to the adopt and foster pages -->
       <li class="dropdown dropdown-hover" tabindex="0">
         <%= link_to adopting_path do %>
