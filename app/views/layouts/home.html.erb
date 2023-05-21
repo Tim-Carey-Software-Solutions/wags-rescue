@@ -10,10 +10,40 @@
 </head>
 
 <body>
-<%= render "layouts/home_navbar" %>
-<%= render "layouts/hero" %>
-<main class="container mx-auto mt-10 px-5">
-  <%= yield %>
-</main>
+<div class="drawer drawer-mobile">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle"/>
+  <div class="drawer-content">
+    <label for="my-drawer-2" tabindex="0" class="btn btn-ghost lg:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+      </svg>
+    </label>
+    <%= render "layouts/hero" %>
+    <main class="container mx-auto mt-10 px-5">
+      <%= yield %>
+    </main>
+  </div>
+  <div class="drawer-side">
+    <label for="my-drawer-2" class="drawer-overlay"></label>
+
+    <ul class="menu p-4 w-80 bg-base-100 text-base-content">
+      <%= link_to root_path, class: "btn flex justify-start mb-2 btn-ghost normal-case text-xl" do %>
+        <%= image_tag "wags_logo.png", class: "w-10 h-10 mr-2" %>
+        Wags Rescue
+      <% end %>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Volunteer", volunteer_path %></li>
+      <li><%= link_to "Fundraising", fundraising_path %></li>
+      <li><%= link_to "Events", events_path %></li>
+      <li><%= link_to "Donate", donate_path %></li>
+      <li><%= link_to "Wish List", wishlist_path %></li>
+      <li><%= link_to "AmazonSmile", amazon_smile_path %></li>
+      <li><%= link_to "Contact Us", contact_us_path %></li>
+      <li><%= link_to "About Us", about_us_path %></li>
+      <li><%= link_to "FAQ", faq_path %></li>
+      <li><%= link_to "Wags Wiki", wags_wiki_path %></li>
+    </ul>
+  </div>
+</div>
 </body>
 </html>
