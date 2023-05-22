@@ -40,3 +40,5 @@
 #new files to ignore
 /bin/dev.ps1
 /bin/dev
+
+.env
