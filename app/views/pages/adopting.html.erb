@@ -1,28 +1,29 @@
 <h1 class="text-center text-2xl font-bold mb-2"> Adopting From Wags </h1>
-<div>
-  <div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-xl">
-    <input type="checkbox">
-    <div class="collapse-title text-xl font-medium text-center">
-      Adoption Guidelines
-    </div>
-    <div class="collapse-content">
-      <p class="indent-6 mb-2">All adoption decisions are based on what we feel is in the best interest for each dog.
-        We reserve the right to decline any application if we feel the dogs health, safety or wellbeing may be at risk.
-      </p>
-      <p class="text-center mb-2">
-        <i>Home checks may be required before approval and post adoption.</i>
-      </p>
-      <div class="flex flex-wrap">
-        <p>A complete list of dogs available for adoption can be found on
-          <a href="https://www.adoptapet.com/shelter/82992-wags-rescue-and-referral-southampton-pennsylvania" target="_blank"> <u>our dogs page</u> </a>
-          or you can click on the Adopt a Pet banner.</a>
-        <div class="justify-end flex">
-          <%= link_to "https://www.adoptapet.com/shelter/82992-wags-rescue-and-referral-southampton-pennsylvania", target:"_blank" do%>
-            <%= image_tag "petfinder.jpg", class: "justify-end", width: "217", height: "77", target: "_blank"%>
-          <%end%>
-        </div>
+<div class="w-fit flex flex-col justify-center">
+  <div>
+    <div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-xl">
+      <input type="checkbox">
+      <div class="collapse-title text-xl font-medium text-center">
+        Adoption Guidelines
+      </div>
+      <div class="collapse-content">
+        <p class="mb-2">All adoption decisions are based on what we feel is in the best interest for each dog.
+          We reserve the right to decline any application if we feel the dogs health, safety or wellbeing may be at risk.
         </p>
-        <p class="text-center mb-4">
+        <p class="text-center mb-2">
+          <i>Home checks may be required before approval and post adoption.</i>
+        </p>
+        <div class="flex flex-wrap">
+          <p class="mb-2">A complete list of dogs available for adoption can be found on
+            <a href="https://www.adoptapet.com/shelter/82992-wags-rescue-and-referral-southampton-pennsylvania" target="_blank"> <u>our dogs page</u> </a>
+            or you can click on the Adopt a Pet banner.</a>
+          <div class="justify-end flex mb-2">
+            <%= link_to "https://www.adoptapet.com/shelter/82992-wags-rescue-and-referral-southampton-pennsylvania", target:"_blank" do%>
+              <%= image_tag "petfinder.jpg", class: "justify-end", width: "217", height: "77", target: "_blank"%>
+            <%end%>
+          </div>
+        </p>
+        <p class="text-center mb-2">
           <i>When inquiring about a dog, please be sure to reference the dog's full name (first and last) and litter name if it's a puppy.
             Failure to reference the complete name will significantly delay our response time. Thank you for your cooperation.</i>
         </p>
@@ -30,7 +31,7 @@
       <p> You <u>must</u> be approved in advance in order to adopt from Wags. Your approval is then valid for 90 days. </p>
     </div>
   </div>
-  </p>
+</p>
 </div>
 <div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-xl">
   <input type="checkbox">
@@ -38,9 +39,9 @@
     Our Adoption Area
   </div>
   <div class="collapse-content">
-    <p class="indent-6"><i>Wags Rescue</i> is based in <i>Bucks County</i>. Therefore, a majority of our volunteers live in the Bucks County area.
+    <p><i>Wags Rescue</i> is based in <i>Bucks County</i>. Therefore, a majority of our volunteers live in the Bucks County area.
       <i>WAGS</i> will consider adoption applications for people living in the <i>BUCKS</i> and <i>MONTGOMERY</i> areas. On a case by case basis
-      (depending on distance and availability of our volunteers to do a home visit), we may consider applications in the
+      <i>(depending on distance and availability of our volunteers to do a home visit)</i>, we may consider applications in the
       <i>PHILADELPHIA</i> area as well as parts of <i>CHESTER</i> county.
     </p>
   </div>
@@ -51,12 +52,12 @@
     How We Determine What Breed a Dog is
   </div>
   <div class="collapse-content">
-    <p class="indent-6">Quite simply, we really don't. Our dogs, most commonly, are magnificent mutts.
+    <p class="mb-2">Quite simply, we really don't. Our dogs, most commonly, are magnificent mutts.
       The breed listed on the website is always a "mix" and is completely based on a guess of one person (usually shelter staff).
       There can be endless varying opinions as to what a dog is really mixed with. For example, a dog may be marked as a lab mix
       and if you get a DNA test done, there may not be any lab in the dog at all.
     </p>
-    <p>
+    <p class="mb-2">
       The reality is, if it's important to you to have a certain breed (or it is important that your dog NOT have certain breeds in its makeup),
       try a breed-specific rescue group. If breed is not a concern when choosing a fit for your family, try to focus on traits that make
       a difference in daily life such as personality/temperament, size, health, activity level and age. When it comes to choosing a rescue dog,
@@ -68,7 +69,7 @@
     </p>
   </div>
 </div>
-<div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-box mb-2">
+<div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-box">
   <input type="checkbox">
   <div class="collapse-title text-xl font-medium text-center">
     Application Review Process
@@ -90,22 +91,104 @@
       We review each application and make our decision based on what we feel is the best fit for each dog.
       We reserve the right to decline any application that is not in the dog's best interest.
     </p>
-    <p>
-      <b>
-        <u>Adoption Agreement</u>
-      </b>
-      - After your application has been approved and you have chosen your new family member,
+  </div>
+</div>
+<div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-box">
+  <input type="checkbox">
+  <div class="collapse-title text-xl font-medium text-center">
+    Adoption Agreement
+  </div>
+  <div class="collapse-content">
+    <p class="mb-2">
+      After your application has been approved and you have chosen your new family member,
       you will be required to initial each item on our adoption agreement and have all adopters sign before we can finalize your adoption.
+    </p>
+    <p>Once your adoption agreement is received and medicals emailed, you have 48 hours to pick up your new dog.</p>
+  </div>
+</div>
+<div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-box">
+  <input type="checkbox">
+  <div class="collapse-title text-xl font-medium text-center">
+    Adoption Fees
+  </div>
+  <div class="collapse-content">
+    <p class="mb-2">
+      Below are the standard adoption fees. There are instances where special adoption fees apply so please check the PetFinder listing
+      for a dog to see the adoption fee that applies.
+    </p>
+    <p class="mb-2">Once your adoption agreement is received and medicals emailed, you have 48 hours to pick up your new dog.</p>
+    <!-- The button to open modal -->
+    <div class="flex justify-center mb-2">
+      <label for="my-modal-6" class="btn btn-wide">Click here for Fees</label>
+    </div>
+    <!-- Put this part before </body> tag -->
+    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Fees</h3>
+        <p class="py-2">Dogs under 1 year old: $400 if spayed/neutered, or $300+$100 spay/neuter refundable deposit*</p>
+        <p class="py-2">Dogs 1-4 years old: $350 if spayed/neutered, or $250+$100 spay/neuter refundable deposit*</p>
+        <p class="py-2">Dogs 4-6 years old: $250 if spayed/neutered, or $250+$100 spay/neuter refundable deposit*</p>
+        <p class="py-2">Dogs over 6 years old: $150 if spayed/neutered, or $150+$100 spay/neuter refundable deposit*</p>
+        <div class="modal-action">
+          <label for="my-modal-6" class="btn">Back</label>
+        </div>
+      </div>
+    </div>
+    <p class="mb-2">*Your $100 spay/neuter deposit will be returned once we receive proof of the spay/neuter within 6 months of the adoption.
+      Please email the certificate of Spay/Neuter to
+      <%= link_to "refund@wagsrescue.org", "mailto:refund@wagsrescue.org", class: "link link-primary" %>
+    </p>
+    <ul class="list-disc list-inside mb-2">
+      <li class="mb-2">You must include adopter's name on the agreement, dog's original Wags name and preferred method of refund: PayPal or check via U.S. mail with your request.
+        If choosing PayPal, please include the PayPal account/email.
+        If choosing check, please include a mailing address for U.S. mail.
+      </li>
+      <li>Should you choose to donate your deposit, please email a copy of the spay/neuter certificate,
+        include the dog's original Wags name and intentions to donate deposit to
+        <%= link_to "refund@wagsrescue.org", "mailto:refund@wagsrescue.org", class: "link link-primary" %>
+        and for that we thank you.
+      </li>
+    </ul>
+    <p class="mb-2">In case of a returned check, Wags will require the fees paid plus a $30.00 NSF fee.</p>
+    <p class="mb-2">At events, we accept cash or checks for the adoption fee.</p>
+    <p>If you would like to pay the adoption fee via PayPal, the payment must be made 3 days prior to finalizing the adoption.</p>
+  </div>
+</div>
+<div tabindex="0" class="collapse collapse-arrow border hover:bg-sky-500/25 rounded-box">
+  <input type="checkbox">
+  <div class="collapse-title text-xl font-medium text-center">
+    About the Adoption Fees
+  </div>
+  <div class="collapse-content">
+    <p class="mb-2">
+      The Adoption fee is a <i>NONREFUNDABLE</i> donation given to Wags so that we may continue our mission of saving dogs.
+      If the time comes that an adopter can no longer care for the dog, it is understood that <i>NO REFUND</i> of adoption fees
+      will be given and that the dog must be returned to Wags.
+    </p>
+    <p class="mb-2">
+      If you have any questions, please email Our
+      <%= link_to "Adoptions Coordinator", "mailto:adoptions@wagsrescue.org", class: "link link-primary" %>
+    </p>
+    <p>
+      <small>
+        Forgive us if there is sometimes a delay in getting back to your inquiries. We are all volunteers doing our best to meet the demands of our own lives, families and jobs, in addition to helping these dogs. If you feel that your email or application has been overlooked,
+        it is quite possible that email or server problems deleted it accidentally. Please try again!
+      </small>
+    </p>
   </div>
 </div>
 <p class="text-center mb-2 rounded-lg text-[#3367d6]">
   <b>
-    <a href="wags senioradoptionpolicy link">Click Here to View Wags Senior Citizen Adoption Policy <i class="fa-solid fa-arrow-up-right-from-square" style="color: #3367d6;"></i></a>
+    <a href="#">Click Here to View Wags Senior Citizen Adoption Policy <i class="fa-solid fa-arrow-up-right-from-square" style="color: #3367d6;"></i></a>
   </b>
 </p>
 <p class="text-center mb-2 text-[#3367d6]">
   <b>
-    <a href="AdoptionApplicationLink" target="_blank">I've Read the Above and am Ready to Complete the Adoption Application <i class="fa-solid fa-arrow-up-right-from-square" style="color: #3367d6;"></i></a>
+    <a href="#" target="_blank">I've Read the Above and am Ready to Complete the Adoption Application <i class="fa-solid fa-arrow-up-right-from-square" style="color: #3367d6;"></i></a>
   </b>
 </p>
+<div class="flex justify-center">
+  <%= button_to "Click here to Pay Your Adoption Fee", "https://www.paypal.com/donate?token=BdFilqaLbtls_GFAL_QdXpSDFMpUgwpSJ4qWX2FAg2mHN2dAMb8MIVWqBuJETj6pM_OFjuzxZltnj2bV", class: "btn btn-primary", target: "_blank" %>
+</div>
 </div>
