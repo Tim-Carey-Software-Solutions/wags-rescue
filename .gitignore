@@ -39,4 +39,5 @@
 
 #new files to ignore
 /bin/dev.ps1
+/bin/dev
 /config/database.yml
