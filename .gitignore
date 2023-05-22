@@ -36,3 +36,6 @@
 
 /.idea
 /node_modules
+
+/bin/dev
+/config/database.yml
