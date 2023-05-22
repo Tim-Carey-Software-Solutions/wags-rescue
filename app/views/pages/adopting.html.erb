@@ -189,6 +189,6 @@
   </b>
 </p>
 <div class="flex justify-center">
-  <%= button_to "Click here to Pay Your Adoption Fee", "https://www.paypal.com/donate?token=BdFilqaLbtls_GFAL_QdXpSDFMpUgwpSJ4qWX2FAg2mHN2dAMb8MIVWqBuJETj6pM_OFjuzxZltnj2bV", class: "btn btn-primary", target: "_blank" %>
+  <%= button_to "Click here to Pay Your Adoption Fee", "https://www.paypal.com/donate?token=#{ENV['PAYPAL_TOKEN']}", class: "btn btn-primary", target: "_blank" %>
 </div>
 </div>
