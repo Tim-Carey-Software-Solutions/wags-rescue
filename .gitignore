@@ -37,5 +37,6 @@
 /.idea
 /node_modules
 
-/bin/dev
+#new files to ignore
+/bin/dev.ps1
 /config/database.yml
