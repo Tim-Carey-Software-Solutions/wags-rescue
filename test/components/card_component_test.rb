@@ -6,7 +6,7 @@ class CardComponentTest < ViewComponent::TestCase
       "Some content!"
     end
 
-    assert_selector "h2[class='card-title']", text: "my title"
+    assert_selector ".card-title", text: "my title"
     assert_text "Some content!"
   end
 end
