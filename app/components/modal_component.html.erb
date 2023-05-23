@@ -1,0 +1,13 @@
+<div class="flex justify-center mb-2">
+  <label for="my-modal-6" class="btn btn-wide"><%= @open_btn_text %></label>
+</div>
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-6" class="modal-toggle"/>
+<div class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+      <%= content %>
+    <div class="modal-action">
+      <label for="my-modal-6" class="btn"><%= @close_btn_text %></label>
+    </div>
+  </div>
+</div>
