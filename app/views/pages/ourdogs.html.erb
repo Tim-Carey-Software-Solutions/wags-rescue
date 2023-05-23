@@ -1,1 +1,10 @@
 <h1>Our dogs page</h1> <!-- just a placeholder for now -->
+
+<%= render CollapseComponent.new(title: "This is a collapse", extra_container_classes: "rounded-xl") do %>
+  <p>Some content</p>
+  <p><i>Wags Rescue</i> is based in <i>Bucks County</i>. Therefore, a majority of our volunteers live in the Bucks County area.
+    <i>WAGS</i> will consider adoption applications for people living in the <i>BUCKS</i> and <i>MONTGOMERY</i> areas. On a case by case basis
+    <i>(depending on distance and availability of our volunteers to do a home visit)</i>, we may consider applications in the
+    <i>PHILADELPHIA</i> area as well as parts of <i>CHESTER</i> county.
+    <p>Blah blah blah</p>
+<% end %>
