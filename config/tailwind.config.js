@@ -4,7 +4,8 @@ module.exports = {
         './public/*.html',
         './app/helpers/**/*.rb',
         './app/assets/stylesheets/**/*.css',
-        './app/javascript/**/*.js'
+        './app/javascript/**/*.js',
+        './app/components/**/*.html.erb',
     ],
 
     plugins: [
