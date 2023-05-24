@@ -1,0 +1,25 @@
+<%= form_with(url: send_email_path) do |form| %>
+  <h5 class="text-2xl text-primary">Contact Form</h5>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Name</span>
+    </label>
+    <%= form.text_field :name, placeholder: "Name", class: "input input-bordered input-primary w-full max-w-xs" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Email</span>
+    </label>
+    <%= form.email_field :email, placeholder: "youremail@site.com", class: "input input-bordered input-primary w-full max-w-xs" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Message</span>
+    </label>
+    <%= form.text_area :message, placeholder: "Message", class: "textarea textarea-primary" %>
+  </div>
+
+  <%= form.submit 'Send Email', class: "btn btn-primary mt-4" %>
+<% end %>

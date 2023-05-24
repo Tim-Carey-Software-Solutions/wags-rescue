@@ -1,1 +1,23 @@
-<h1>Contact Us</h1>
+<h1 class="text-5xl text-primary mb-1">Contact Wags</h1>
+<hr>
+<div class="mt-4 flex flex-col justify-between sm:flex-row sm:flex-wrap sm:-mx-2 gap-4">
+  <%= render "contact/form" %>
+  <div>
+    <h5 class="text-2xl text-primary">Email Us</h5>
+    <%= render CardComponent.new(title: "") do %>
+      <p><%= link_to "General Email", "mailto:info@wagsrescue.org", class: "link text-lg font-bold link-primary" %></p>
+      <p><%= link_to "Adoption Coordinator", "mailto:adoptions@wagsrescue.org", class: "link text-lg font-bold link-primary" %></p>
+      <p><%= link_to "Foster Coordinator", "mailto:fosters@wagsrescue.org", class: "link text-lg font-bold link-primary" %></p>
+      <p><%= link_to "Volunteer Coordinator", "mailto:volunteers@wagsrescue.org", class: "link text-lg font-bold link-primary" %></p>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <h5 class="text-2xl text-primary">Send Us Mail</h5>
+    <%= render CardComponent.new(title: "") do %>
+      <p>Wags Rescue</p>
+      <p>PO Box 1514</p>
+      <p>Southampton, PA 18966</p>
+    <% end %>
+  </div>
+</div>

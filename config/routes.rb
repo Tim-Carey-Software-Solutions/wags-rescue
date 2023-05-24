@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   get "/wishlist", to: "pages#wishlist"
   get "/wags-wiki", to: "pages#wagswiki"
   get "/amazon-smile", to: "pages#amazonsmile"
+
+  # Send contact email path
+  post '/send_email', to: 'contact#send_email', as: 'send_email'
 end
