@@ -1,1 +1,123 @@
-<h1>Donate</h1>
+<h1 class="text-5xl text-primary">Donate To Wags</h1>
+<hr>
+<div class="flex flex-col sm:flex-row sm:flex-wrap sm:-mx-2 gap-4">
+  <%= render CardComponent.new(title: "Where the Money Goes") do %>
+    <p>
+      All donations go directly towards helping animals in overcrowded and underfunded facilities or the medical
+      attention
+      needed to get these animals healthy and adoptable.
+      Our sincerest thanks for any help you may be able to offer!
+    </p>
+
+    <%= form_with(url: "/donate") do |form| %>
+      <%= form.select "donation", options_for_select([["Five $5.00 USD", "5.00"], ["Ten $10.00 USD", "10.00"], ["Twenty $20.00 USD", "20.00"], ["Thirty $30.00 USD", "30.00"], ["Fifty $50.00 USD", "50.00"], ["One Hundred $100.00 USD", "100.00"], ["Two Hundred $2000.00 USD", "200.00"], ["Three Hundred $300.00 USD", "300.00"], ["Four Hundred $400.00 USD", "400.00"], ["Five Hundred $500.00 USD", "500.00"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
+
+      <div class="card-actions">
+        <%= form.label :reason_for_donation, "Reason for donating:", class: "mt-2" %>
+        <%= form.text_field :reason_for_donation, class: "input input-bordered w-full max-w-xs" %>
+        <%= button_to "Buy Now", "#", class: "btn btn-warning mt-4" %>
+      </div>
+      <div>
+        <i class="fa-brands fa-cc-visa text-2xl"></i>
+        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+        <i class="fa-brands fa-cc-amex text-2xl"></i>
+        <i class="fa-brands fa-cc-discover text-2xl"></i>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Monthly Recurring Donation") do %>
+    <p>
+      How many times would you like this to recur? (including this payment)
+    </p>
+
+    <%= form_with(url: "/recurring") do |form| %>
+      <%# form.select "donation", [["Five $5.00 USD", "5.00"], ["Ten $10.00 USD", "5.00"], ["Twenty $20.00 USD", "5.00"], ["Thirty $30.00 USD", "5.00"], ["Fifty $50.00 USD", "5.00"], ["One Hundred $100.00 USD", "5.00"], ["Two Hundred $2000.00 USD", "5.00"], ["Three Hundred $300.00 USD", "5.00"], ["Four Hundred $400.00 USD", "5.00"], ["Five Hundred $500.00 USD", "5.00"],] %>
+      <%= form.select "recurring", options_for_select([["Never End", "Never"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
+      <div>
+        <%= form.label :donation, "Enter Your Donation Amount" %>
+        <%= form.text_field :donation, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div class="card-actions">
+        <%= button_to "Donate", "#", class: "btn btn-warning mt-4" %>
+      </div>
+      <div>
+        <i class="fa-brands fa-cc-visa text-2xl"></i>
+        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+        <i class="fa-brands fa-cc-amex text-2xl"></i>
+        <i class="fa-brands fa-cc-discover text-2xl"></i>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Feed a Homeless Pet") do %>
+    <figure><%= image_tag "feeddogs.png" %></figure>
+    <p>
+      A $5 donation will buy enough food to keep one homeless pet fed for a week. Please click the donate button below
+      to help.
+    </p>
+
+    <%= form_with(url: "/feed") do |form| %>
+      <div>
+        <%= form.label :quantity, "Enter Quantity" %>
+        <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div class="card-actions">
+        <%= button_to "Donate", "#", class: "btn btn-warning mt-4" %>
+      </div>
+      <div>
+        <i class="fa-brands fa-cc-visa text-2xl"></i>
+        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+        <i class="fa-brands fa-cc-amex text-2xl"></i>
+        <i class="fa-brands fa-cc-discover text-2xl"></i>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Donate to Vaccinate") do %>
+    <figure><%= image_tag "vaccinate.png" %></figure>
+    <p>
+      Just $3 will buy a vaccination for a homeless pet. Please click the donate button below to help.
+    </p>
+
+    <%= form_with(url: "/vaccinate") do |form| %>
+      <div>
+        <%= form.label :quantity, "Enter Quantity" %>
+        <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div class="card-actions">
+        <%= button_to "Donate", "#", class: "btn btn-warning mt-4" %>
+      </div>
+      <div>
+        <i class="fa-brands fa-cc-visa text-2xl"></i>
+        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+        <i class="fa-brands fa-cc-amex text-2xl"></i>
+        <i class="fa-brands fa-cc-discover text-2xl"></i>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Help Stop Overpopulation") do %>
+    <figure><%= image_tag "spayneuter.png" %></figure>
+    <p>
+      One fertile female dog and her offspring can produce over 60,000 puppies in a six year period. Can you spare $10
+      to help stop pet overpopulation?
+    </p>
+
+    <%= form_with(url: "/stop-overpopulation") do |form| %>
+      <div>
+        <%= form.label :quantity, "Enter Quantity" %>
+        <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div class="card-actions">
+        <%= button_to "Donate", "#", class: "btn btn-warning mt-4" %>
+      </div>
+      <div>
+        <i class="fa-brands fa-cc-visa text-2xl"></i>
+        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+        <i class="fa-brands fa-cc-amex text-2xl"></i>
+        <i class="fa-brands fa-cc-discover text-2xl"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>
