@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'one_time_donations/new'
+  get 'one_time_donations/cancel'
+  get 'one_time_donations/success'
   root "pages#index"
 
   # All routes for the pages controller
@@ -19,4 +22,6 @@ Rails.application.routes.draw do
 
   # Send contact email path
   post '/send_email', to: 'contact#send_email', as: 'send_email'
+
+  post "/donate", to: "one_time_donations#new"
 end

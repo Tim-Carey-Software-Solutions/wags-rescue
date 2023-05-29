@@ -10,12 +10,12 @@
     </p>
 
     <%= form_with(url: "/donate") do |form| %>
-      <%= form.select "donation", options_for_select([["Five $5.00 USD", "5.00"], ["Ten $10.00 USD", "10.00"], ["Twenty $20.00 USD", "20.00"], ["Thirty $30.00 USD", "30.00"], ["Fifty $50.00 USD", "50.00"], ["One Hundred $100.00 USD", "100.00"], ["Two Hundred $2000.00 USD", "200.00"], ["Three Hundred $300.00 USD", "300.00"], ["Four Hundred $400.00 USD", "400.00"], ["Five Hundred $500.00 USD", "500.00"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
+      <%= form.select :donation_amount, options_for_select([["Five $5.00 USD", "5.00"], ["Ten $10.00 USD", "10.00"], ["Twenty $20.00 USD", "20.00"], ["Thirty $30.00 USD", "30.00"], ["Fifty $50.00 USD", "50.00"], ["One Hundred $100.00 USD", "100.00"], ["Two Hundred $2000.00 USD", "200.00"], ["Three Hundred $300.00 USD", "300.00"], ["Four Hundred $400.00 USD", "400.00"], ["Five Hundred $500.00 USD", "500.00"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
 
       <div class="card-actions">
         <%= form.label :reason_for_donation, "Reason for donating:", class: "mt-2" %>
         <%= form.text_field :reason_for_donation, class: "input input-bordered w-full max-w-xs" %>
-        <%= button_to "Buy Now", "#", class: "btn btn-warning mt-4" %>
+        <%= form.submit "Buy Now", class: "btn btn-warning mt-4" %>
       </div>
       <div>
         <i class="fa-brands fa-cc-visa text-2xl"></i>
