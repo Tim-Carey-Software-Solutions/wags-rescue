@@ -1,15 +1,16 @@
 class OneTimeDonationsController < ApplicationController
+  include OneTimeDonationsHelper
   def new
+    @selected_price_id = donation_price_ids[params[:donation_amount]]
 
     session = Stripe::Checkout::Session.create({
                                                  line_items: [{
-                                                                price: params[:donation_amount],
+                                                                price: @selected_price_id,
                                                                 quantity: 1,
                                                               }],
                                                  payment_method_types: ['card'],
                                                  mode: 'payment',
                                                  invoice_creation: { enabled: true },
-                                                 allow_promotion_codes: true,
                                                  success_url: one_time_donations_success_url + "?session_id={CHECKOUT_SESSION_ID}",
                                                  cancel_url: one_time_donations_cancel_url,
                                                  payment_intent_data: {

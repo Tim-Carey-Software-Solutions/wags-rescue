@@ -10,20 +10,10 @@
     </p>
 
     <%= form_with(url: one_time_donations_new_path, method: :get) do |form| %>
-      <%= form.select :donation_amount, options_for_select([
-                                                             ["Five $5.00 USD", ENV['STRIPE_FIVE_PRICE_ID']],
-                                                             ["Ten $10.00 USD", ENV['STRIPE_TEN_PRICE_ID']],
-                                                             ["Twenty $20.00 USD", ENV['STRIPE_TWENTY_PRICE_ID']],
-                                                             ["Thirty $30.00 USD", ENV['STRIPE_THIRTY_PRICE_ID']],
-                                                             ["Fifty $50.00 USD", ENV['STRIPE_FIFTY_PRICE_ID']],
-                                                             ["One Hundred $100.00 USD", ENV['STRIPE_ONEHUNDRED_PRICE_ID']],
-                                                             ["Two Hundred $2000.00 USD", ENV['STRIPE_TWOHUNDRED_PRICE_ID']],
-                                                             ["Three Hundred $300.00 USD", ENV['STRIPE_THREEHUNDRED_PRICE_ID']],
-                                                             ["Four Hundred $400.00 USD", ENV['STRIPE_FOURHUNDRED_PRICE_ID']],
-                                                             ["Five Hundred $500.00 USD", ENV['STRIPE_FIVEHUNDRED_PRICE_ID']]
-                                                           ]), { selected: "5.00" }, class: "select select-primary w-full max-w-xs"
-      %>
-
+      <%= form.select :donation_amount, options_for_select(
+        donation_price_ids.map { |amount, _price_id| ["$#{amount} USD", amount] },
+        selected: "5.00"
+      ), {}, class: "select select-primary w-full max-w-xs" %>
 
       <div class="card-actions">
         <%= form.label :reason_for_donation, "Reason for donating:", class: "mt-2" %>
