@@ -1,6 +1,6 @@
 <h1 class="text-5xl text-primary">Donate To Wags</h1>
 <hr>
-<div class="flex flex-col sm:flex-row sm:flex-wrap sm:-mx-2 gap-4">
+<div class="grid 2xl:grid-cols-2 xl:grid-cols-1 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4">
   <%= render CardComponent.new(title: "Where the Money Goes") do %>
     <p>
       All donations go directly towards helping animals in overcrowded and underfunded facilities or the medical
@@ -49,6 +49,8 @@
       </div>
     <% end %>
   <% end %>
+</div>
+<div class="grid 2xl:grid-cols-3 xl:grid-cols-1  lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4 mb-4">
 
   <%= render CardComponent.new(title: "Feed a Homeless Pet") do %>
     <figure><%= image_tag "feeddogs.png" %></figure>
