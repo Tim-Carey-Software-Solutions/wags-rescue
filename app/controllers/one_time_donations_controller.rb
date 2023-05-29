@@ -1,26 +1,25 @@
 class OneTimeDonationsController < ApplicationController
   def new
-    amount_in_dollars = params[:donation_amount]
-    amount_in_cents = (amount_in_dollars.to_f * 100).to_i
 
-    charge = Stripe::Charge.create(
-      amount: amount_in_cents,
-      currency: 'usd',
-      source: 'tok_visa',
-      metadata: {
-        'reason_for_donation' => params[:reason_for_donation],
-      }
-    )
-    if charge.status == "succeeded"
-      redirect_to donate_path, notice: "Thank you for your donation of $#{params[:donation_amount]}!"
-    else
-      redirect_to donate_path, alert: "Something went wrong. Please try again."
-    end
+    session = Stripe::Checkout::Session.create({
+                                                 line_items: [{
+                                                                price: params[:donation_amount],
+                                                                quantity: 1,
+                                                              }],
+                                                 mode: 'payment',
+                                                 invoice_creation: { enabled: true },
+                                                 allow_promotion_codes: true,
+                                                 success_url: one_time_donations_success_url + "?session_id={CHECKOUT_SESSION_ID}",
+                                                 cancel_url: one_time_donations_cancel_url,
+                                               })
+
+    redirect_to session.url, status: 303, allow_other_host: true
   end
 
   def cancel
   end
 
   def success
+    redirect_to donate_path, notice: "Thank you for your donation!"
   end
 end

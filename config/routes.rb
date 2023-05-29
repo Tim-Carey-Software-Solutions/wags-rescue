@@ -23,5 +23,9 @@ Rails.application.routes.draw do
   # Send contact email path
   post '/send_email', to: 'contact#send_email', as: 'send_email'
 
-  post "/donate", to: "one_time_donations#new"
+  resources :one_time_donations do
+    get :cancel
+    get :success
+    get :new
+  end
 end

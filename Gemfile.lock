@@ -268,7 +268,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
-  stripe (~> 8.5)
+  stripe
   tailwindcss-rails
   turbo-rails
   tzinfo-data

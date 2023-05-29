@@ -9,13 +9,26 @@
       Our sincerest thanks for any help you may be able to offer!
     </p>
 
-    <%= form_with(url: "/donate") do |form| %>
-      <%= form.select :donation_amount, options_for_select([["Five $5.00 USD", "5.00"], ["Ten $10.00 USD", "10.00"], ["Twenty $20.00 USD", "20.00"], ["Thirty $30.00 USD", "30.00"], ["Fifty $50.00 USD", "50.00"], ["One Hundred $100.00 USD", "100.00"], ["Two Hundred $2000.00 USD", "200.00"], ["Three Hundred $300.00 USD", "300.00"], ["Four Hundred $400.00 USD", "400.00"], ["Five Hundred $500.00 USD", "500.00"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
+    <%= form_with(url: one_time_donations_new_path, method: :get) do |form| %>
+      <%= form.select :donation_amount, options_for_select([
+                                                             ["Five $5.00 USD", ENV['STRIPE_FIVE_PRICE_ID']],
+                                                             ["Ten $10.00 USD", ENV['STRIPE_TEN_PRICE_ID']],
+                                                             ["Twenty $20.00 USD", ENV['STRIPE_TWENTY_PRICE_ID']],
+                                                             ["Thirty $30.00 USD", ENV['STRIPE_THIRTY_PRICE_ID']],
+                                                             ["Fifty $50.00 USD", ENV['STRIPE_FIFTY_PRICE_ID']],
+                                                             ["One Hundred $100.00 USD", ENV['STRIPE_ONEHUNDRED_PRICE_ID']],
+                                                             ["Two Hundred $2000.00 USD", ENV['STRIPE_TWOHUNDRED_PRICE_ID']],
+                                                             ["Three Hundred $300.00 USD", ENV['STRIPE_THREEHUNDRED_PRICE_ID']],
+                                                             ["Four Hundred $400.00 USD", ENV['STRIPE_FOURHUNDRED_PRICE_ID']],
+                                                             ["Five Hundred $500.00 USD", ENV['STRIPE_FIVEHUNDRED_PRICE_ID']]
+                                                           ]), { selected: "5.00" }, class: "select select-primary w-full max-w-xs"
+      %>
+
 
       <div class="card-actions">
         <%= form.label :reason_for_donation, "Reason for donating:", class: "mt-2" %>
         <%= form.text_field :reason_for_donation, class: "input input-bordered w-full max-w-xs" %>
-        <%= form.submit "Buy Now", class: "btn btn-warning mt-4" %>
+        <%= form.submit "Buy Now", data: { turbo: false }, class: "btn btn-warning mt-4" %>
       </div>
       <div>
         <i class="fa-brands fa-cc-visa text-2xl"></i>
