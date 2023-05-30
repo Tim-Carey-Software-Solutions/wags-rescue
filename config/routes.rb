@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'recurring_donations/new'
-  get 'one_time_donations/new'
-  get 'one_time_donations/cancel'
-  get 'one_time_donations/success'
+  get "feed_homeless_pets/new"
+  get "recurring_donations/new"
+  get "one_time_donations/new"
+  get "one_time_donations/cancel"
+  get "one_time_donations/success"
+  get "vaccinate_pets/new"
+  get "stop_overpopulation/new"
+  
   root "pages#index"
 
   # All routes for the pages controller
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
   get "/amazon-smile", to: "pages#amazonsmile"
 
   # Send contact email path
-  post '/send_email', to: 'contact#send_email', as: 'send_email'
+  post "/send_email", to: "contact#send_email", as: "send_email"
 
   resources :one_time_donations do
     get :cancel
@@ -30,6 +34,6 @@ Rails.application.routes.draw do
     get :new
   end
 
-  get '/recurring_donations/new', to: 'recurring_donations#new', as: 'new_recurring_donation'
-  get '/recurring_donations/success', to: 'recurring_donations#success', as: 'success_recurring_donations'
+  get "/recurring_donations/new", to: "recurring_donations#new", as: "new_recurring_donation"
+  get "/recurring_donations/success", to: "recurring_donations#success", as: "success_recurring_donations"
 end
