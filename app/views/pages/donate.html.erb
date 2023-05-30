@@ -30,14 +30,14 @@
       How many times would you like this to recur? (including this payment)
     </p>
 
-    <%= form_with(url: "/recurring") do |form| %>
-      <%= form.select "recurring", options_for_select([["Never End", "Never"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
+    <%= form_with(url: new_recurring_donation_path, method: :get) do |form| %>
+      <%= form.select :interval, options_for_select([["Never End", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
       <div>
-        <%= form.label :donation, "Enter Your Donation Amount" %>
-        <%= form.text_field :donation, class: "input input-bordered w-full max-w-xs" %>
+        <%= form.label :donation_amount, "Enter Your Donation Amount" %>
+        <%= form.text_field :donation_amount, class: "input input-bordered w-full max-w-xs" %>
       </div>
       <div class="card-actions">
-        <%= button_to "Donate", "#", class: "btn btn-warning mt-4" %>
+        <%= button_to "Donate", "#", data: { turbo: false }, class: "btn btn-warning mt-4" %>
       </div>
       <div>
         <i class="fa-brands fa-cc-visa text-2xl"></i>

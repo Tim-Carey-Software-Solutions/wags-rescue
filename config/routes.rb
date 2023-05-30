@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'recurring_donations/new'
   get 'one_time_donations/new'
   get 'one_time_donations/cancel'
   get 'one_time_donations/success'
@@ -28,4 +29,7 @@ Rails.application.routes.draw do
     get :success
     get :new
   end
+
+  get '/recurring_donations/new', to: 'recurring_donations#new', as: 'new_recurring_donation'
+  get '/recurring_donations/success', to: 'recurring_donations#success', as: 'success_recurring_donations'
 end
