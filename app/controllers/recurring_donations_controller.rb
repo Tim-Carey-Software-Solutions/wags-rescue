@@ -7,7 +7,8 @@ class RecurringDonationsController < ApplicationController
       unit_amount: amount_in_cents,
       interval: 'month',
       interval_count: params[:interval],
-      success_url: success_recurring_donations_url
+      success_url: success_recurring_donations_url,
+      donate_url: donate_url,
     )
 
 
