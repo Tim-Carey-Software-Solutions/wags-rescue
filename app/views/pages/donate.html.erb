@@ -1,1 +1,49 @@
-<h1>Donate</h1>
+<h1 class="text-5xl text-primary mb-4">Donate To Wags</h1>
+<hr>
+<div class="grid 2xl:grid-cols-2 xl:grid-cols-1 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4">
+  <%= render CardComponent.new(title: "Where the Money Goes", extra_body_classes: "items-center text-center") do %>
+    <p>
+      All donations go directly towards helping animals in overcrowded and underfunded facilities or the medical
+      attention
+      needed to get these animals healthy and adoptable.
+      Our sincerest thanks for any help you may be able to offer!
+    </p>
+    <%= render "one_time_donations/one_time_donation_form" %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Monthly Recurring Donation", extra_body_classes: "items-center text-center") do %>
+    <p>
+      How many times would you like this to recur? (including this payment)
+    </p>
+    <%= render "recurring_donations/monthly_donation_form" %>
+  <% end %>
+</div>
+<div class="grid 2xl:grid-cols-3 xl:grid-cols-1  lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4 mb-4">
+
+  <%= render CardComponent.new(title: "Feed a Homeless Pet", extra_body_classes: "text-center items-center") do %>
+    <figure><%= image_tag "feeddogs.png" %></figure>
+    <p>
+      A $5 donation will buy enough food to keep one homeless pet fed for a week. Please click the donate button below
+      to help.
+    </p>
+    <%= render "feed_homeless_pets/feed_homeless_pets_form" %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Donate to Vaccinate", extra_body_classes: "text-center items-center") do %>
+    <figure><%= image_tag "vaccinate.png" %></figure>
+    <p>
+      Just $3 will buy a vaccination for a homeless pet. Please click the donate button below to help.
+    </p>
+    <%= render "vaccinate_pets/vaccinate_pets_form" %>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Help Stop Overpopulation", extra_body_classes: "text-center items-center") do %>
+    <figure><%= image_tag "spayneuter.png" %></figure>
+    <p>
+      One fertile female dog and her offspring can produce over 60,000 puppies in a six year period. Can you spare $10
+      to help stop pet overpopulation?
+    </p>
+
+    <%= render "stop_overpopulation/stop_overpopulation_form" %>
+  <% end %>
+</div>
