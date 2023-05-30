@@ -1,6 +1,6 @@
 <%= form_with(url: one_time_donations_new_path, method: :get) do |form| %>
   <%= form.select :donation_amount, options_for_select( donation_price_ids.map { |amount, _price_id| ["$#{amount} USD", amount] }, selected: "5.00" ), {}, class: "select select-primary w-full max-w-xs" %>
-  <div class="card-actions">
+  <div class="card-actions justify-center">
     <%= form.label :reason_for_donation, "Reason for donating:", class: "mt-2" %>
     <%= form.text_field :reason_for_donation, class: "input input-bordered w-full max-w-xs" %>
     <%= form.submit "Buy Now", data: { turbo: false }, class: "btn btn-warning mt-4 mb-4" %>

@@ -4,7 +4,7 @@
     <%= form.label :donation_amount, "Enter Your Donation Amount" %>
     <%= form.number_field :donation_amount, step: '0.01', min: '5', placeholder: '5.00', class: "input input-bordered w-full max-w-xs mt-2", required: true %>
   </div>
-  <div class="card-actions">
+  <div class="card-actions justify-center">
     <%= form.submit "Donate", data: { turbo: false }, class: "btn btn-warning mt-4 mb-4" %>
   </div>
   <div>
