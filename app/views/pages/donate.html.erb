@@ -8,44 +8,14 @@
       needed to get these animals healthy and adoptable.
       Our sincerest thanks for any help you may be able to offer!
     </p>
-
-    <%= form_with(url: one_time_donations_new_path, method: :get) do |form| %>
-      <%= form.select :donation_amount, options_for_select( donation_price_ids.map { |amount, _price_id| ["$#{amount} USD", amount] }, selected: "5.00" ), {}, class: "select select-primary w-full max-w-xs" %>
-      <div class="card-actions">
-        <%= form.label :reason_for_donation, "Reason for donating:", class: "mt-2" %>
-        <%= form.text_field :reason_for_donation, class: "input input-bordered w-full max-w-xs" %>
-        <%= form.submit "Buy Now", data: { turbo: false }, class: "btn btn-warning mt-4 mb-4" %>
-      </div>
-      <div>
-        <i class="fa-brands fa-cc-visa text-2xl"></i>
-        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-        <i class="fa-brands fa-cc-amex text-2xl"></i>
-        <i class="fa-brands fa-cc-discover text-2xl"></i>
-      </div>
-    <% end %>
+    <%= render "one_time_donations/one_time_donation_form" %>
   <% end %>
 
   <%= render CardComponent.new(title: "Monthly Recurring Donation") do %>
     <p>
       How many times would you like this to recur? (including this payment)
     </p>
-
-    <%= form_with(url: new_recurring_donation_path, method: :get) do |form| %>
-      <%= form.select :interval, options_for_select([["2 months", "2"], ["3 months", "3"], ["4 months", "4"], ["5 months", "5"], ["6 months", "6"], ["7 months", "7"], ["8 months", "8"], ["9 months", "9"], ["10 months", "10"], ["11 months", "11"], ["1 year", "12"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
-      <div>
-        <%= form.label :donation_amount, "Enter Your Donation Amount" %>
-        <%= form.text_field :donation_amount, class: "input input-bordered w-full max-w-xs" %>
-      </div>
-      <div class="card-actions">
-        <%= button_to "Donate", "#", data: { turbo: false }, class: "btn btn-warning mt-4" %>
-      </div>
-      <div>
-        <i class="fa-brands fa-cc-visa text-2xl"></i>
-        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-        <i class="fa-brands fa-cc-amex text-2xl"></i>
-        <i class="fa-brands fa-cc-discover text-2xl"></i>
-      </div>
-    <% end %>
+    <%= render "recurring_donations/monthly_donation_form" %>
   <% end %>
 </div>
 <div class="grid 2xl:grid-cols-3 xl:grid-cols-1  lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4 mb-4">
@@ -56,22 +26,7 @@
       A $5 donation will buy enough food to keep one homeless pet fed for a week. Please click the donate button below
       to help.
     </p>
-
-    <%= form_with(url: feed_homeless_pets_new_path, method: :get) do |form| %>
-      <div>
-        <%= form.label :quantity, "Enter Quantity" %>
-        <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
-      </div>
-      <div class="card-actions">
-        <%= form.submit "Donate", data: { turbo: false }, class: "btn btn-warning mt-4" %>
-      </div>
-      <div>
-        <i class="fa-brands fa-cc-visa text-2xl"></i>
-        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-        <i class="fa-brands fa-cc-amex text-2xl"></i>
-        <i class="fa-brands fa-cc-discover text-2xl"></i>
-      </div>
-    <% end %>
+    <%= render "feed_homeless_pets/feed_homeless_pets_form" %>
   <% end %>
 
   <%= render CardComponent.new(title: "Donate to Vaccinate") do %>
@@ -79,22 +34,7 @@
     <p>
       Just $3 will buy a vaccination for a homeless pet. Please click the donate button below to help.
     </p>
-
-    <%= form_with(url: vaccinate_pets_new_path, method: :get) do |form| %>
-      <div>
-        <%= form.label :quantity, "Enter Quantity" %>
-        <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
-      </div>
-      <div class="card-actions">
-        <%= form.submit "Donate", data: { turbo: false }, class: "btn btn-warning mt-4" %>
-      </div>
-      <div>
-        <i class="fa-brands fa-cc-visa text-2xl"></i>
-        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-        <i class="fa-brands fa-cc-amex text-2xl"></i>
-        <i class="fa-brands fa-cc-discover text-2xl"></i>
-      </div>
-    <% end %>
+    <%= render "vaccinate_pets/vaccinate_pets_form" %>
   <% end %>
 
   <%= render CardComponent.new(title: "Help Stop Overpopulation") do %>
@@ -104,20 +44,6 @@
       to help stop pet overpopulation?
     </p>
 
-    <%= form_with(url: stop_overpopulation_new_path, method: :get) do |form| %>
-      <div>
-        <%= form.label :quantity, "Enter Quantity" %>
-        <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
-      </div>
-      <div class="card-actions">
-        <%= form.submit "Donate", data: { turbo: false }, class: "btn btn-warning mt-4" %>
-      </div>
-      <div>
-        <i class="fa-brands fa-cc-visa text-2xl"></i>
-        <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-        <i class="fa-brands fa-cc-amex text-2xl"></i>
-        <i class="fa-brands fa-cc-discover text-2xl"></i>
-      </div>
-    <% end %>
+    <%= render "stop_overpopulation/stop_overpopulation_form" %>
   <% end %>
 </div>

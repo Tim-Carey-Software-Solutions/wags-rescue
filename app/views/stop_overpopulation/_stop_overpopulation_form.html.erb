@@ -1,0 +1,15 @@
+<%= form_with(url: stop_overpopulation_new_path, method: :get) do |form| %>
+  <div>
+    <%= form.label :quantity, "Enter Quantity" %>
+    <%= form.number_field :quantity, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+  <div class="card-actions">
+    <%= form.submit "Donate", data: { turbo: false }, class: "btn btn-warning mt-4" %>
+  </div>
+  <div>
+    <i class="fa-brands fa-cc-visa text-2xl"></i>
+    <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+    <i class="fa-brands fa-cc-amex text-2xl"></i>
+    <i class="fa-brands fa-cc-discover text-2xl"></i>
+  </div>
+<% end %>

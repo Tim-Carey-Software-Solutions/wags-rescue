@@ -1,0 +1,16 @@
+<%= form_with(url: new_recurring_donation_path, method: :get) do |form| %>
+  <%= form.select :interval, options_for_select([["2 months", "2"], ["3 months", "3"], ["4 months", "4"], ["5 months", "5"], ["6 months", "6"], ["7 months", "7"], ["8 months", "8"], ["9 months", "9"], ["10 months", "10"], ["11 months", "11"], ["1 year", "12"]], selected: "5.00"), {}, class: "select select-primary w-full max-w-xs" %>
+  <div>
+    <%= form.label :donation_amount, "Enter Your Donation Amount" %>
+    <%= form.text_field :donation_amount, class: "input input-bordered w-full max-w-xs" %>
+  </div>
+  <div class="card-actions">
+    <%= button_to "Donate", "#", data: { turbo: false }, class: "btn btn-warning mt-4" %>
+  </div>
+  <div>
+    <i class="fa-brands fa-cc-visa text-2xl"></i>
+    <i class="fa-brands fa-cc-mastercard text-2xl"></i>
+    <i class="fa-brands fa-cc-amex text-2xl"></i>
+    <i class="fa-brands fa-cc-discover text-2xl"></i>
+  </div>
+<% end %>
