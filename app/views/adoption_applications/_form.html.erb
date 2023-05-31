@@ -1,5 +1,5 @@
 <%= form_with(model: AdoptionApplication) do |form| %>
-  <div class="flex justify-center">
+  <div class="flex">
     <div class="form-control w-full max-w-xs">
       <label class="label">
         <span class="label-text">Name of the Dog You Are Interested In</span>
@@ -441,36 +441,33 @@
   </div>
 
   <div class="form-control w-full max-w-xs">
+    <label for="">In addition to a regular life at home, would your dog: (check all that apply)</label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Walk routinely with a family member</span>
+      <%= check_box_tag 'adoption_application[additional_dog_activities][]', "Walk routinely with a family member", false, class: "checkbox checkbox-primary" %>
+    </label>
 
-    <input type="checkbox" name="additional_dog_activities[]" value="Walk routinely with a family member" class="checkbox checkbox-primary" />
-    <input type="checkbox" name="additional_dog_activities[]" value="Compete in obedience trails or other dog sports" class="checkbox checkbox-primary" />
-    <input type="checkbox" name="additional_dog_activities[]" value="Go to work with you" class="checkbox checkbox-primary" />
-<!--    <label for="">In addition to a regular life at home, would your dog: (check all that apply)</label>-->
-<!--    <label class="label cursor-pointer">-->
-<!--      <span class="label-text">Walk routinely with a family member</span>-->
-      <%#= check_box_tag :additional_dog_activities, "Walk routinely with a family member", false, class: "checkbox checkbox-primary" %>
-<!--    </label>-->
+    <label class="label cursor-pointer">
+      <span class="label-text">Compete in obedience trails or other dog sports</span>
+      <%= check_box_tag 'adoption_application[additional_dog_activities][]', "Compete in obedience trails or other dog sports", false, class: "checkbox checkbox-primary" %>
+    </label>
 
-<!--    <label class="label cursor-pointer">-->
-<!--      <span class="label-text">Compete in obedience trails or other dog sports</span>-->
-      <%#= check_box_tag :additional_dog_activities, "Compete in obedience trails or other dog sports", false, class: "checkbox checkbox-primary" %>
-<!--    </label>-->
+    <label class="label cursor-pointer">
+      <span class="label-text">Go to work with you</span>
+      <%= check_box_tag 'adoption_application[additional_dog_activities][]', "Go to work with you", false, class: "checkbox checkbox-primary" %>
+    </label>
 
-<!--    <label class="label cursor-pointer">-->
-<!--      <span class="label-text">Go to work with you</span>-->
-      <%#= check_box_tag :additional_dog_activities, "Go to work with you", false, class: "checkbox checkbox-primary" %>
-<!--    </label>-->
+    <label class="label cursor-pointer">
+      <span class="label-text">Travel with you</span>
+      <%= check_box_tag 'adoption_application[additional_dog_activities][]', "Travel with you", false, class: "checkbox checkbox-primary" %>
+    </label>
 
-<!--    <label class="label cursor-pointer">-->
-<!--      <span class="label-text">Travel with you</span>-->
-      <%#= check_box_tag :additional_dog_activities, "Travel with you", false, class: "checkbox checkbox-primary" %>
-<!--    </label>-->
-
-<!--    <label class="label cursor-pointer">-->
-<!--      <span class="label-text">Be a playmate for you, your children, or pets</span>-->
-      <%#= check_box_tag :additional_dog_activities, "Be a playmate for you, your children, or pets", false, class: "checkbox checkbox-primary" %>
-<!--    </label>-->
+    <label class="label cursor-pointer">
+      <span class="label-text">Be a playmate for you, your children, or pets</span>
+      <%= check_box_tag 'adoption_application[additional_dog_activities][]', "Be a playmate for you, your children, or pets", false, class: "checkbox checkbox-primary" %>
+    </label>
   </div>
+
 
   <div class="form-control w-full max-w-xs">
     <label class="label">
@@ -590,28 +587,28 @@
     <label class="label">
       <span class="label-text">Personal Reference 1</span>
     </label>
-    <%= form.text_area :personal_ref_one, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+    <%= form.text_area :personal_ref_one, class: "textarea textarea-bordered" %>
   </div>
 
   <div class="form-control w-full max-w-xs">
     <label class="label">
       <span class="label-text">Personal Reference 2</span>
     </label>
-    <%= form.text_area :personal_ref_two, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+    <%= form.text_area :personal_ref_two, class: "textarea textarea-bordered" %>
   </div>
 
   <div class="form-control w-full max-w-xs">
     <label class="label">
       <span class="label-text">Personal Reference 3</span>
     </label>
-    <%= form.text_area :personal_ref_three, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+    <%= form.text_area :personal_ref_three, class: "textarea textarea-bordered" %>
   </div>
 
   <div class="form-control w-full max-w-xs">
     <label class="label">
       <span class="label-text">Personal Reference 4</span>
     </label>
-    <%= form.text_area :personal_ref_four, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+    <%= form.text_area :personal_ref_four, class: "textarea textarea-bordered" %>
   </div>
 
   <div class="form-control w-full max-w-xs">
@@ -667,7 +664,7 @@
     </label>
   </div>
 
-  <!-- TODO add the terms and conditions here -->
+  <%= render "adoption_agreement" %>
 
   <div class="form-control w-full max-w-xs">
     <label for="">
@@ -707,6 +704,6 @@
     <%= form.text_field :drivers_license_state, class: "input input-bordered w-full max-w-xs", placeholder: "State Driver's License was Issued" %>
   </div>
 
-  <%= form.submit "Submit Adoption Application", class: "btn btn-primary mt-4" %>
+  <%= form.submit "Submit Adoption Application", data: { turbo: false }, class: "btn btn-primary mt-4 mb-4" %>
 
 <% end %>
