@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     get :new
   end
 
+  resources :adoption_applications
+
   get "/recurring_donations/new", to: "recurring_donations#new", as: "new_recurring_donation"
   get "/recurring_donations/success", to: "recurring_donations#success", as: "success_recurring_donations"
 end

@@ -1,0 +1,712 @@
+<%= form_with(model: AdoptionApplication) do |form| %>
+  <div class="flex justify-center">
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Name of the Dog You Are Interested In</span>
+      </label>
+      <%= form.text_field :name_of_dog, class: "input input-bordered w-full max-w-xs" %>
+    </div>
+  </div>
+
+  <h3 class="text-primary text-3xl mt-4">Contact Information</h3>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">First and Last Name</span>
+    </label>
+    <%= form.text_field :name, class: "input input-bordered w-full max-w-xs", placeholder: "Name" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Age</span>
+    </label>
+    <%= form.text_field :age, class: "input input-bordered w-full max-w-xs", placeholder: "Age" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Street Address</span>
+    </label>
+    <%= form.text_field :street_address, class: "input input-bordered w-full max-w-xs", placeholder: "Street Address" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">City</span>
+    </label>
+    <%= form.text_field :city, class: "input input-bordered w-full max-w-xs", placeholder: "City" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">State</span>
+    </label>
+    <%= form.text_field :state, class: "input input-bordered w-full max-w-xs", placeholder: "State" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Zip</span>
+    </label>
+    <%= form.text_field :zip, class: "input input-bordered w-full max-w-xs", placeholder: "Zip" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Phone</span>
+    </label>
+    <%= form.text_field :phone, class: "input input-bordered w-full max-w-xs", placeholder: "Phone" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Work Phone</span>
+    </label>
+    <%= form.text_field :work_phone, class: "input input-bordered w-full max-w-xs", placeholder: "Work Phone" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Occupation</span>
+    </label>
+    <%= form.text_field :occupation, class: "input input-bordered w-full max-w-xs", placeholder: "Occupation" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Email</span>
+    </label>
+    <%= form.email_field :email, class: "input input-bordered w-full max-w-xs", placeholder: "Email" %>
+  </div>
+
+  <h3 class="text-primary text-3xl mt-4">Home Information</h3>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">How many adults in the house?</span>
+    </label>
+    <%= form.text_field :how_many_adults_in_house, class: "input input-bordered w-full max-w-xs", placeholder: "How many adults in the house?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">How many children in the house?</span>
+    </label>
+    <%= form.text_field :how_many_children_in_house, class: "input input-bordered w-full max-w-xs", placeholder: "How many children in the house?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Children's Ages</span>
+    </label>
+    <%= form.text_field :childrens_ages, class: "input input-bordered w-full max-w-xs", placeholder: "Children's Ages" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">Do you own or rent your home?</label>
+    <strong class="text-sm">Please be aware that Wags <u>does not</u> adopt out bully breeds or dogs over 40 lbs to
+      renters.</strong>
+    <label class="label cursor-pointer">
+      <span class="label-text">Own</span>
+      <%= form.radio_button :own_or_rent, "Own", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Rent</span>
+      <%= form.radio_button :own_or_rent, "Rent", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">What sort of home do you live in?</label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Single Family Home</span>
+      <%= form.radio_button :type_of_house, "Single Family Home", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Multi-family Home</span>
+      <%= form.radio_button :type_of_house, "Multi-family Home", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Mobile Home</span>
+      <%= form.radio_button :type_of_house, "Mobile Home", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Multi-family Home</span>
+      <%= form.radio_button :type_of_house, "Multi-family Home", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Apartment</span>
+      <%= form.radio_button :type_of_house, "Apartment", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Condominium</span>
+      <%= form.radio_button :type_of_house, "Condominium", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Row Home</span>
+      <%= form.radio_button :type_of_house, "Row Home", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Town Home</span>
+      <%= form.radio_button :type_of_house, "Town Home", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Name of Landlord or HOA (self if you own)</span>
+    </label>
+    <%= form.text_field :landlord_or_hoa_name, class: "input input-bordered w-full max-w-xs", placeholder: "Name of Landlord or HOA (self if you own)" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Address of Landlord or HOA (self if you own)</span>
+    </label>
+    <%= form.text_field :landlord_or_hoa_address, class: "input input-bordered w-full max-w-xs", placeholder: "Address of Landlord or HOA (self if you own)" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Phone Number for Landlord or HOA (self if you own)</span>
+    </label>
+    <%= form.text_field :landlord_or_hoa_phone, class: "input input-bordered w-full max-w-xs", placeholder: "Phone Number for Landlord or HOA (self if you own)" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">Do you have a fenced in yard?</label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :fenced_yard, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :fenced_yard, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">What size is the fenced in portion? (enter 0 if no fence)?</span>
+    </label>
+    <%= form.text_field :size_of_fenced_portion, class: "input input-bordered w-full max-w-xs", placeholder: "What size is the fenced in portion? (enter 0 if no fence)?" %>
+  </div>
+
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">Would you be willing to fence in a portion of your yard as a condition of the adoption?</label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :willing_to_fence, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :willing_to_fence, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">Are there any structures that would allow your dog to get over the fence?</label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :can_dog_go_over_fence, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :can_dog_go_over_fence, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Does anyone in the home have any medical conditions or physical limitations
+      that might cause difficulty in living with or caring for a pet?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :any_medical_or_physical_limitations, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :any_medical_or_physical_limitations, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Please explain any medical conditions. If there are no medical conditions, please enter none.</span>
+    </label>
+    <%= form.text_area :medical_conditions_list, class: "textarea textarea-bordered", placeholder: "Explain any medical conditions" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      How would you describe your household activity level?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Low</span>
+      <%= form.radio_button :household_activity_level, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">Medium</span>
+      <%= form.radio_button :household_activity_level, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">High</span>
+      <%= form.radio_button :household_activity_level, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <h3 class="text-primary text-3xl">General Adoption Questions</h3>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Why do you want a new dog?</span>
+    </label>
+    <%= form.text_area :reason_for_new_dog, class: "textarea textarea-bordered", placeholder: "Why do you want a new dog?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Please list all pets you currently have including pet's name and type.</span>
+    </label>
+    <%= form.text_area :list_all_pets, class: "textarea textarea-bordered", placeholder: "Please list all pets you currently have including pet's name and type." %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">How many pets have you owned in the past and what type?</span>
+    </label>
+    <%= form.text_area :past_pets_and_type, class: "textarea textarea-bordered", placeholder: "How many pets have you owned in the past and what type?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Have you ever trained dogs?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :ever_trained_dogs, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :ever_trained_dogs, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">What commands have you taught? If none, please enter none.</span>
+    </label>
+    <%= form.text_field :commands_taught, class: "input input-bordered w-full max-w-xs", placeholder: "What commands have you taught? If none, please enter none." %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">What methods of correcting mistakes were used? If none, please enter none.</span>
+    </label>
+    <%= form.text_area :correcting_methods, class: "textarea textarea-bordered", placeholder: "What methods of correcting mistakes were used? If none, please enter none." %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+     Are you familiar with crate training?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :familiar_with_crate_training, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :familiar_with_crate_training, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Are you willing to learn and use crate training as a condition of adoption?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :willing_to_use_crate_training, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :willing_to_use_crate_training, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">How many hours a day will your dog be alone?</span>
+    </label>
+    <%= form.text_field :daily_hours_dog_alone, class: "input input-bordered w-full max-w-xs", placeholder: "How many hours a day will your dog be alone?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Where will your dog spend it's days?</span>
+    </label>
+    <%= form.text_field :where_will_dog_spend_days, class: "input input-bordered w-full max-w-xs", placeholder: "Where will your dog spend it's days?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Where will your dog sleep?</span>
+    </label>
+    <%= form.text_field :where_will_dog_sleep, class: "input input-bordered w-full max-w-xs", placeholder: "Where will your dog sleep?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">How will your dog receive physical exercise?</span>
+    </label>
+    <%= form.text_field :how_will_dog_exercise, class: "input input-bordered w-full max-w-xs", placeholder: "How will your dog receive physical exercise?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">What books or other materials have you read concerning dog training or dog behavior?</span>
+    </label>
+    <%= form.text_field :books_read_dog_training, class: "input input-bordered w-full max-w-xs", placeholder: "What books or other materials have you read concerning dog training or dog behavior?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Does everyone in the family want this dog and are willing to spend time with him/her?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :does_family_want_dog, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :does_family_want_dog, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Who will be the primary caregiver of your dog?</span>
+    </label>
+    <%= form.text_field :primary_caregiver, class: "input input-bordered w-full max-w-xs", placeholder: "Who will be the primary caregiver of your dog?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Approximately how many adult visitors do you have a month?</span>
+    </label>
+    <%= form.text_field :adult_visitors_monthly, class: "input input-bordered w-full max-w-xs", placeholder: "Approximately how many adult visitors do you have a month?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Approximately how many children visit your house in a month?</span>
+    </label>
+    <%= form.text_field :children_visitors_monthly, class: "input input-bordered w-full max-w-xs", placeholder: "Approximately how many children visit your house in a month?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+
+    <input type="checkbox" name="additional_dog_activities[]" value="Walk routinely with a family member" class="checkbox checkbox-primary" />
+    <input type="checkbox" name="additional_dog_activities[]" value="Compete in obedience trails or other dog sports" class="checkbox checkbox-primary" />
+    <input type="checkbox" name="additional_dog_activities[]" value="Go to work with you" class="checkbox checkbox-primary" />
+<!--    <label for="">In addition to a regular life at home, would your dog: (check all that apply)</label>-->
+<!--    <label class="label cursor-pointer">-->
+<!--      <span class="label-text">Walk routinely with a family member</span>-->
+      <%#= check_box_tag :additional_dog_activities, "Walk routinely with a family member", false, class: "checkbox checkbox-primary" %>
+<!--    </label>-->
+
+<!--    <label class="label cursor-pointer">-->
+<!--      <span class="label-text">Compete in obedience trails or other dog sports</span>-->
+      <%#= check_box_tag :additional_dog_activities, "Compete in obedience trails or other dog sports", false, class: "checkbox checkbox-primary" %>
+<!--    </label>-->
+
+<!--    <label class="label cursor-pointer">-->
+<!--      <span class="label-text">Go to work with you</span>-->
+      <%#= check_box_tag :additional_dog_activities, "Go to work with you", false, class: "checkbox checkbox-primary" %>
+<!--    </label>-->
+
+<!--    <label class="label cursor-pointer">-->
+<!--      <span class="label-text">Travel with you</span>-->
+      <%#= check_box_tag :additional_dog_activities, "Travel with you", false, class: "checkbox checkbox-primary" %>
+<!--    </label>-->
+
+<!--    <label class="label cursor-pointer">-->
+<!--      <span class="label-text">Be a playmate for you, your children, or pets</span>-->
+      <%#= check_box_tag :additional_dog_activities, "Be a playmate for you, your children, or pets", false, class: "checkbox checkbox-primary" %>
+<!--    </label>-->
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Which dog(s) are you interested in if the dog listed above is not available?</span>
+    </label>
+    <%= form.text_field :backup_dog_name, class: "input input-bordered w-full max-w-xs", placeholder: "Which dog(s) are you interested in if the dog listed above is not available?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Do you have a gender preference as a condition of adoption?</span>
+    </label>
+    <%= form.text_field :gender_preference, class: "input input-bordered w-full max-w-xs", placeholder: "Do you have a gender preference as a condition of adoption?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Do you have an age preference as a condition of adoption? If yes, please list.</span>
+    </label>
+    <%= form.text_field :age_preference, class: "input input-bordered w-full max-w-xs", placeholder: "Do you have an age preference as a condition of adoption? If yes, please list." %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Occasionally, a dog with special needs (physical restrictions or senior dog) is
+      available for adoption. Would you consider such a dog?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :consider_special_needs_dog, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :consider_special_needs_dog, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Are you financially prepared to provide regular veterinary care?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :financially_prepared, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :financially_prepared, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?</span>
+    </label>
+    <%= form.text_area :previous_dog_health_issues, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      Do you currently have a veterinarian?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :currently_have_vet, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :currently_have_vet, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      May we contact your vet?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :allow_contact_vet, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :allow_contact_vet, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Vet's Name</span>
+    </label>
+    <%= form.text_field :vets_name, class: "input input-bordered w-full max-w-xs", placeholder: "Vet's Name" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Vet's Address</span>
+    </label>
+    <%= form.text_field :vets_address, class: "input input-bordered w-full max-w-xs", placeholder: "Vet's Address" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Vet's Phone</span>
+    </label>
+    <%= form.text_field :vets_phone, class: "input input-bordered w-full max-w-xs", placeholder: "Vet's Phone" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Personal Reference 1</span>
+    </label>
+    <%= form.text_area :personal_ref_one, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Personal Reference 2</span>
+    </label>
+    <%= form.text_area :personal_ref_two, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Personal Reference 3</span>
+    </label>
+    <%= form.text_area :personal_ref_three, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Personal Reference 4</span>
+    </label>
+    <%= form.text_area :personal_ref_four, class: "textarea textarea-bordered", placeholder: "Considering all dogs you have owned, what health issues have you experienced and what kinds of routine veterinary care was given (generally speaking)?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">When you go out of town, who will care for your dog?</span>
+    </label>
+    <%= form.text_field :out_of_town_caregiver, class: "input input-bordered w-full max-w-xs", placeholder: "When you go out of town, who will care for your dog?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      If you had to move for any reason, would you bring your dog with you?
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :bring_dog_with_moving, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :bring_dog_with_moving, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">How did you find out about Wags Rescue?</span>
+    </label>
+    <%= form.text_field :wags_referrer, class: "input input-bordered w-full max-w-xs", placeholder: "How did you find out about Wags Rescue?" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Please add any additional information you feel will help us find the right dog for you.</span>
+    </label>
+    <%= form.text_area :additional_information, class: "textarea textarea-bordered", placeholder: "Please add any additional information you feel will help us find the right dog for you." %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      I understand that my adopted pet must be kept on heartworm medication all year around and I agree to keep to this regimen.
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :agree_to_heartworm, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :agree_to_heartworm, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+  <!-- TODO add the terms and conditions here -->
+
+  <div class="form-control w-full max-w-xs">
+    <label for="">
+      I understand and accept all responsibilities outlined above.
+    </label>
+    <label class="label cursor-pointer">
+      <span class="label-text">Yes</span>
+      <%= form.radio_button :accept_responsibilities, "Yes", class: "radio radio-primary" %>
+    </label>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label cursor-pointer">
+      <span class="label-text">No</span>
+      <%= form.radio_button :accept_responsibilities, "No", class: "radio radio-primary" %>
+    </label>
+  </div>
+
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Driver's License Number</span>
+    </label>
+    <%= form.text_field :drivers_license, class: "input input-bordered w-full max-w-xs", placeholder: "Driver's License Number" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Name on Driver's License</span>
+    </label>
+    <%= form.text_field :name_on_license, class: "input input-bordered w-full max-w-xs", placeholder: "Name on Driver's License" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">State Driver's License was Issued</span>
+    </label>
+    <%= form.text_field :drivers_license_state, class: "input input-bordered w-full max-w-xs", placeholder: "State Driver's License was Issued" %>
+  </div>
+
+  <%= form.submit "Submit Adoption Application", class: "btn btn-primary mt-4" %>
+
+<% end %>
