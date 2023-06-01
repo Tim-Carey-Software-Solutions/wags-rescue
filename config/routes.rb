@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :customers
+      resources :adoption_applications
+      resources :users
+      resources :events
+
+      root to: "events#index"
+    end
+  devise_for :users
   get "feed_homeless_pets/new"
   get "recurring_donations/new"
   get "one_time_donations/new"

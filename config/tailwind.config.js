@@ -6,6 +6,7 @@ module.exports = {
         './app/assets/stylesheets/**/*.css',
         './app/javascript/**/*.js',
         './app/components/**/*.html.erb',
+        './app/components/**/*.rb',
     ],
 
     plugins: [

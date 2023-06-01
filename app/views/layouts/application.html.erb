@@ -13,6 +13,6 @@
 <body class="bg-[#a6c7fd]/20">
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=568168888854102&autoLogAppEvents=1" nonce="nEM1ILbH"></script>
 <%= render "layouts/alerts" %>
-<%= render(DrawerComponent.new(my_yield: yield)) %>
+<%= render(DrawerComponent.new(my_yield: yield, current_user: current_user, user_signed_in: user_signed_in?)) %>
 </body>
 </html>
