@@ -27,7 +27,9 @@
           <li>
             <label tabindex="0">
               Adopt
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+              </svg>
             </label>
           </li>
         </ul>
@@ -43,7 +45,9 @@
           <li>
             <div tabindex="0">
               Foster
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+              </svg>
             </div>
           </li>
         </ul>
@@ -61,7 +65,22 @@
       <li><%= link_to "Contact Us", contact_us_path %></li>
       <li><%= link_to "About Us", about_us_path %></li>
       <li><%= link_to "FAQ", faq_path %></li>
-      <li><%= link_to "Wags Wiki", wags_wiki_path %></li>
+      <li><%= link_to "Wags Wiki", wags_wiki_path, class: "mb-2" %></li>
+      <div class=" mx-4 bottom-0">
+        <div class="inline fb-share-button" data-href="https://bold-star-9293.fly.dev/" data-layout="" data-size="">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbold-star-9293.fly.dev%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+            <i class="fa-brands text-[#1877f2] text-3xl mb-2 fa-square-facebook"></i>
+          </a>
+        </div>
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check out Wags Rescue <%= website_link %>">
+          <i class="fa-brands text-primary text-3xl fa-square-twitter"></i>
+        </a>
+        <i class="fa-brands text-[#ff4500] text-3xl fa-square-reddit cursor-pointer" onclick="window.open('https://reddit.com/submit?url=http%3A%2F%2Fwagsrescue.com%2F')"></i>
+        <%= mail_to "", body: "Check out this link: #{website_link}", subject: "Wags Rescue" do %>
+          <i class="fa-solid text-red-500 text-3xl fa-square-envelope"></i>
+        <% end %>
+        <i class="fa-solid text-primary text-3xl fa-print cursor-pointer" onclick="window.print()"></i>
+      </div>
     </ul>
   </div>
 </div>
