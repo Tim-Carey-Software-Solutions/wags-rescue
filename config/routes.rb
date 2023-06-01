@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "feed_homeless_pets/new"
   get "recurring_donations/new"
   get "one_time_donations/new"
