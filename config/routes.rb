@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :customers
+      resources :adoption_applications
+      resources :users
+
+      root to: "customers#index"
+    end
   devise_for :users
   get "feed_homeless_pets/new"
   get "recurring_donations/new"
