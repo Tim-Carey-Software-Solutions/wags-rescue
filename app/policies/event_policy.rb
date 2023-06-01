@@ -1,4 +1,4 @@
-class CustomerPolicy < ApplicationPolicy
+class EventPolicy < ApplicationPolicy
 
   def index?
     admin?

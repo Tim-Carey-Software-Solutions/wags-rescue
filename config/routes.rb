@@ -3,6 +3,7 @@ Rails.application.routes.draw do
       resources :customers
       resources :adoption_applications
       resources :users
+      resources :events
 
       root to: "customers#index"
     end

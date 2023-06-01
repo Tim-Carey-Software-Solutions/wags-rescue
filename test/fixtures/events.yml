@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :bigint           not null, primary key
+#  when       :date
+#  start      :time
+#  end        :time
+#  location   :string
+#  address    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  when: 2023-06-01
+  start: 2023-06-01 10:51:56
+  end: 2023-06-01 10:51:56
+  location: MyString
+  address: MyString
+
+two:
+  when: 2023-06-01
+  start: 2023-06-01 10:51:56
+  end: 2023-06-01 10:51:56
+  location: MyString
+  address: MyString

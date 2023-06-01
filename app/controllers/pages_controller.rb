@@ -32,6 +32,7 @@ class PagesController < ApplicationController
   end
 
   def events
+    @events = Event.all.order(when: :asc)
   end
 
   def fundraising

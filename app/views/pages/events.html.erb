@@ -1,46 +1,16 @@
 <div>
   <h3 class="text-3xl text-primary mb-4 mt-4">Upcoming Events</h3>
+  <hr>
   <div class="flex flex-col sm:flex-row sm:flex-wrap sm:-mx-2 gap-4">
-
-    <%= render CardComponent.new(title: "Arts & Barks Fest") do %>
-      <p>Sunday, 5/21/2023</p>
-      <p>11AM-3PM</p>
-      <p>350 E Bristol Rd Warminster, PA 18974</p>
-      <div class="card-actions">
-        <%= link_to "Directions", "https://goo.gl/maps/ih1PMwDyhtAaFwzP6", target: "_blank", class: "btn btn-primary" %>
-      </div>
+    <% @events.each do |event| %>
+      <%= render CardComponent.new(title: event.location) do %>
+        <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
+        <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>
+        <p><%= event.address %></p>
+        <div class="card-actions">
+          <%= link_to "Directions", event.directions, target: "_blank", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     <% end %>
-
-    <%= render CardComponent.new(title: "Pet Supplies Plus") do %>
-      <p>Sunday, 5/28/2023</p>
-      <p>11AM-1PM</p>
-      <p>488 Second St Pike Southampton, PA 18966</p>
-      <div class="card-actions">
-        <%= link_to "Directions", "https://goo.gl/maps/P6jBi66AbfFFuS8Y8", target: "_blank", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
-    <%= render CardComponent.new(title: "Pop-Up Fresh Market Warminster Community Park") do %>
-      <p>Sunday, 7/16/2023</p>
-      <p>9:30AM-1PM</p>
-      <p>
-        1100 Veterans Way Warminster, PA 18974
-      </p>
-      <div class="card-actions">
-        <%= link_to "Directions", "https://www.google.com/maps/dir//Warminster+Community+Park+1100+veterans+way/@40.139157,-75.3170151,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c6ae9c60b6beeb:0x233de9bfae2e620c!2m2!1d-75.0655682!2d40.1999041", target: "_blank", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
-    <%= render CardComponent.new(title: "Food Truck & Music Fest Warminster Community Park") do %>
-      <p>Saturday, 9/16/2023</p>
-      <p>11AM-3PM</p>
-      <p>
-        1100 Veterans Way Warminster, PA 18974
-      </p>
-      <div class="card-actions">
-        <%= link_to "Directions", "https://www.google.com/maps/dir//Warminster+Community+Park+1100+veterans+way/@40.139157,-75.3170151,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c6ae9c60b6beeb:0x233de9bfae2e620c!2m2!1d-75.0655682!2d40.1999041", target: "_blank", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
   </div>
 </div>
