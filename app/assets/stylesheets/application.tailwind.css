@@ -2,26 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
-}
-
-*/
-
-.sticky-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 999; /* Ensure the footer appears above other content */
-}
-
-.wrapper {
-    margin-bottom: 80px; /* Adjust this value to match the height of the footer */
-    /* Additional styles as needed */
-}
+/*@layer components {*/
+/*  .btn-primary {*/
+/*    @apply py-2 px-4 bg-blue-200;*/
+/*  }*/
+/*}*/

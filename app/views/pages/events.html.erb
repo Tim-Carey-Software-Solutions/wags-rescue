@@ -1,15 +1,33 @@
 <div>
   <h3 class="text-3xl text-primary mb-4 mt-4">Upcoming Events</h3>
   <hr>
+  <%= render CardComponent.new(title: "Next meet and Greet", extra_container_classes: "2xl:w-full") do %>
+    <p>Sunday, June 4th</p>
+    <p>11 am to 1 pm</p>
+    <p>Meet & Greet Only</p>
+    <p>Pet Supplies Plus</p>
+    <p>488 Second Street Pike</p>
+    <p>Southampton, PA 18966</p>
+
+    <p>If you are interested in adopting at one of our events, you can submit an adoption application and get pre-approved to adopt before the event.</p>
+
+    <p>Before you can take your new pet home, you will need to bring a collar, leash, and ID tag with the pet's name and your contact information. We will not finalize the adoption without these items.</p>
+
+    <p>If you are finalizing an adoption, we only accept cash or check at adoption events.</p>
+
+    <p>For more information, please email info@wagsrescue.org.</p>
+  <% end %>
   <div class="flex flex-col sm:flex-row sm:flex-wrap sm:-mx-2 gap-4">
     <% @events.each do |event| %>
-      <%= render CardComponent.new(title: event.location) do %>
-        <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
-        <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>
-        <p><%= event.address %></p>
-        <div class="card-actions">
-          <%= link_to "Directions", event.directions, target: "_blank", class: "btn btn-primary" %>
-        </div>
+      <% if event.when >= Date.today %>
+        <%= render CardComponent.new(title: event.location) do %>
+          <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
+          <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>
+          <p><%= event.address %></p>
+          <div class="card-actions">
+            <%= link_to "Directions", event.directions, target: "_blank", class: "btn btn-primary" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
