@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :users
       resources :events
 
-      root to: "customers#index"
+      root to: "events#index"
     end
   devise_for :users
   get "feed_homeless_pets/new"
