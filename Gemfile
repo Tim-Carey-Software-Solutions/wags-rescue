@@ -5,7 +5,6 @@ ruby "3.1.2"
 
 gem "bootsnap", require: false
 gem "devise"
-gem "importmap-rails"
 gem "interactor-rails", "~> 2.0"
 gem "jbuilder"
 gem "jsbundling-rails", "~> 1.1", ">= 1.1.1"
