@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 gem "administrate"
 gem "bootsnap", require: false
+gem "cssbundling-rails"
 gem "devise"
 gem "importmap-rails"
 gem "interactor-rails", "~> 2.0"
