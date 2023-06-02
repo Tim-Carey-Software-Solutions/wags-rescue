@@ -3,10 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-gem "administrate"
+gem "administrate", github: "excid3/administrate", branch: "jumpstart"
 gem "bootsnap", require: false
 gem "devise"
-gem "importmap-rails"
 gem "interactor-rails", "~> 2.0"
 gem "jbuilder"
 gem "jsbundling-rails", "~> 1.1", ">= 1.1.1"
