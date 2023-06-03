@@ -9,6 +9,7 @@ gem "interactor-rails", "~> 2.0"
 gem "jbuilder"
 gem "jsbundling-rails", "~> 1.1", ">= 1.1.1"
 gem "pg", "~> 1.1"
+gem "pundit", "~> 2.3"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 gem "redis", "~> 4.0"
@@ -37,4 +38,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
