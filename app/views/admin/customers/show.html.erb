@@ -1,0 +1,14 @@
+<%= render AdminCardComponent.new(title: @customer.stripe_customer_id, btn_path: admin_customer_path(@customer)) do %>
+  <hr>
+  <div class="container mx-auto mt-10 px-12">
+    <div class="grid grid-cols-4">
+      <div class="mb-4">ID</div>
+      <div><%= @customer.id %></div>
+    </div>
+
+    <div class="grid grid-cols-4">
+      <div class="mb-4">STRIPE CUSTOMER ID</div>
+      <div><%= @customer.stripe_customer_id %></div>
+    </div>
+  </div>
+<% end %>

@@ -1,10 +1,36 @@
 <%= render AdminCardComponent.new(title: @event.location, link_text: "Edit #{@event.location}", link_path: edit_admin_event_path(@event), btn_path: admin_event_path(@event)) do %>
   <hr>
 
-  <div class="inline">LOCATION <span class="mx-12"><%= @event.location %></span></div>
-  <div class="inline">ADDRESS <span class="mx-12"><%= @event.address %></span></div>
-  <div class="inline">START <span class="mx-12"><%= format_time(@event.start) %></span></div>
-  <div class="inline">END <span class="mx-12"><%= format_time(@event.end) %></span></div>
-  <div class="inline">WHEN <span class="mx-12"><%= format_date(@event.when) %></span></div>
-  <div class="inline">DIRECTIONS <span class="mx-12"><%= @event.directions %></span></div>
+  <div class="container mx-auto mt-10 px-12">
+    <div class="grid grid-cols-3">
+      <div class="mb-2">LOCATION</div>
+      <div class="mb-4"><%= @event.location %></div>
+    </div>
+
+    <div class="grid grid-cols-3">
+      <div class="mb-2">ADDRESS</div>
+      <div class="mb-4"><%= @event.address %></div>
+    </div>
+
+    <div class="grid grid-cols-3">
+      <div class="mb-2">START</div>
+      <div><%= format_time(@event.start) %></div>
+    </div>
+
+    <div class="grid grid-cols-3">
+      <div class="mb-2">END</div>
+      <div><%= format_time(@event.end) %></div>
+    </div>
+
+    <div class="grid grid-cols-3">
+      <div class="mb-2">WHEN</div>
+      <div><%= format_date(@event.when) %></div>
+    </div>
+
+    <div class="grid grid-cols-3">
+      <div class="mb-2">DIRECTIONS</div>
+      <div><%= link_to @event.directions, @event.directions, class: "link link-primary", target: "_blank" %></div>
+    </div>
+
+  </div>
 <% end %>

@@ -1,0 +1,24 @@
+<%= render AdminCardComponent.new(title: "Customers", link_text: nil, link_path: nil) do %>
+  <div data-controller="admin-link" class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Stripe Customer ID</th>
+        <th>Created At</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @customers.each do |customer| %>
+        <tr class="hover cursor-pointer" data-url="<%= admin_customer_path(customer) %>">
+          <td><%= customer.id %></td>
+          <td><%= customer.stripe_customer_id %></td>
+          <td><%= format_date_time(customer.created_at) %></td>
+          <td><%= button_to "Delete", admin_customer_path(customer), method: :delete, data: { turbo: false }, class: "link text-red-400 hover:text-primary/80" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

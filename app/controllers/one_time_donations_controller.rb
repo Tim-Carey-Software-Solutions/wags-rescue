@@ -28,6 +28,12 @@ class OneTimeDonationsController < ApplicationController
   end
 
   def success
+    session_id = params[:session_id]
+    checkout_session = Stripe::Checkout::Session.retrieve(session_id)
+
+
+    customer_id = checkout_session.customer
+    Customer.create(stripe_customer_id: customer_id)
     redirect_to donate_path, notice: "Thank you for your donation!"
   end
 end
