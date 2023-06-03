@@ -1,0 +1,30 @@
+<%= render AdminCardComponent.new(title: "Users", link_text: "New User", link_path: new_admin_user_path) do %>
+  <div data-controller="admin-link" class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+      <tr>
+        <th>Email</th>
+        <th>Admin</th>
+        <th>Created At</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr class="hover cursor-pointer" data-url="<%= admin_user_path(user) %>">
+          <td><%= user.email %></td>
+          <% if user.admin? %>
+            <td>Yes</td>
+          <% else %>
+            <td>No</td>
+          <% end %>
+          <td><%= format_date_time(user.created_at) %></td>
+          <td><%= link_to "Edit", edit_admin_user_path(user), class: "link link-primary" %></td>
+          <td><%= button_to "Delete", admin_user_path(user), method: :delete, data: { turbo: false }, class: "link text-red-400 hover:text-primary/80" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

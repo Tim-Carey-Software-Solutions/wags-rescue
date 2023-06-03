@@ -1,0 +1,50 @@
+<%= render AdminCardComponent.new(title: "Events", link_text: "Back", link_path: admin_root_path) do %>
+  <%= form_with(model: [:admin, @event]) do |form| %>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Location of Event</span>
+      </label>
+      <%= form.text_field :location, placeholder: "Location", class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+    <div class="">
+      <label class="label">
+        <span class="label-text">Start Time</span>
+      </label>
+      <%= form.time_select :start, {minute_step: 15, ampm: true } %>
+    </div>
+
+    <div class="">
+      <label class="label">
+        <span class="label-text">End Time</span>
+      </label>
+      <%= form.time_select :end, {minute_step: 15, ampm: true } %>
+    </div>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">What date will this event be?</span>
+      </label>
+      <%= form.date_field :when, class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Address of Event</span>
+      </label>
+      <%= form.text_field :address, placeholder: "Address", class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Google Maps Link For Directions</span>
+      </label>
+      <%= form.text_field :directions, placeholder: "Directions", class: "input input-bordered w-full max-w-xs mb-4" %>
+    </div>
+
+    <div>
+      <%= form.submit data: { turbo: false }, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

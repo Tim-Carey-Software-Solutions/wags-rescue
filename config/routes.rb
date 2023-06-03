@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :events
+    resources :customers
+    resources :users
+
+    root to: redirect('/admin/events')
+  end
   devise_for :users
   get "feed_homeless_pets/new"
   get "recurring_donations/new"

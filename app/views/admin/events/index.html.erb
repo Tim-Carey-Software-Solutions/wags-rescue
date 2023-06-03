@@ -1,0 +1,30 @@
+<%= render AdminCardComponent.new(title: "Events", link_text: "New Event", link_path: new_admin_event_path) do %>
+  <div data-controller="admin-link" class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+      <tr>
+        <th>Location</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>When</th>
+        <th>Address</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @events.each do |event| %>
+        <tr class="hover cursor-pointer" data-url="<%= admin_event_path(event) %>">
+          <td><%= event.location %></td>
+          <td><%= format_time(event.start) %></td>
+          <td><%= format_time(event.end) %></td>
+          <td><%= format_date(event.when) %></td>
+          <td><%= event.address %></td>
+          <td><%= link_to "Edit", edit_admin_event_path(event), class: "link link-primary" %></td>
+          <td><%= button_to "Delete", admin_event_path(event), method: :delete, data: { turbo: false }, class: "link text-red-400 hover:text-primary/80" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

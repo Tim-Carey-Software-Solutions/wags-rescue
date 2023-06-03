@@ -16,7 +16,7 @@
   <div class="drawer-side">
     <label for="my-drawer-2" class="drawer-overlay"></label>
 
-    <ul class="menu p-4 w-72 bg-base-100 text-base-content">
+    <ul class="menu relative p-4 w-72 bg-base-100 text-base-content">
       <%= link_to root_path, class: "btn flex justify-start mb-2 btn-ghost normal-case text-xl" do %>
         <%= image_tag "wags_logo.png", class: "w-10 h-10 mr-2" %>
         Wags Rescue
@@ -65,8 +65,13 @@
       <li><%= link_to "Contact Us", contact_us_path %></li>
       <li><%= link_to "About Us", about_us_path %></li>
       <li><%= link_to "FAQ", faq_path %></li>
-      <li><%= link_to "Wags Wiki", wags_wiki_path, class: "mb-2" %></li>
-      <div class=" mx-4 bottom-0">
+      <% if @user_signed_in %>
+        <li><%= link_to "Admin", admin_root_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "mb-4" %></li>
+      <% else %>
+        <li><%= link_to "Sign In", new_user_session_path, class: "mb-4" %></li>
+      <% end %>
+      <div class="absolute bottom-0 right-16 flex gap-4">
         <div class="inline fb-share-button" data-href="https://bold-star-9293.fly.dev/" data-layout="" data-size="">
           <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbold-star-9293.fly.dev%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
             <i class="fa-brands text-[#1877f2] text-3xl mb-2 fa-square-facebook"></i>

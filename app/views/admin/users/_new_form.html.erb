@@ -1,0 +1,37 @@
+<%= render AdminCardComponent.new(title: "Users", link_text: "Back", link_path: admin_users_path) do %>
+  <%= form_with(model: [:admin, @user]) do |form| %>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Email</span>
+      </label>
+      <%= form.email_field :email, placeholder: "Email", class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Email</span>
+      </label>
+      <%= form.password_field :password, placeholder: "Password", class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Email</span>
+      </label>
+      <%= form.password_field :password_confirmation, placeholder: "Confirm Password", class: "input input-bordered w-full max-w-xs" %>
+    </div>
+
+
+    <div class="form-control w-full max-w-xs">
+      <label class="label cursor-pointer">
+        <span class="label-text">Admin</span>
+        <%= form.check_box :admin, class: "checkbox checkbox-primary mb-4" %>
+      </label>
+    </div>
+
+    <div>
+      <%= form.submit data: { turbo: false }, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

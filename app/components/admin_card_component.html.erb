@@ -1,0 +1,22 @@
+<div class="flex justify-between mb-4">
+  <div class="mt-8">
+    <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary inline-block mb-4"  %>
+    <%= link_to "Users", admin_users_path, data: { turbo: false }, class: "link link-primary" %>
+  </div>
+  <div class="card w-full bg-base-100 h-[80vh] mb-10 shadow-xl">
+    <div class="flex justify-between items-center">
+      <h2 class="card-title m-4"><%= @title %></h2>
+      <div class="card-actions">
+        <% if @btn_path %>
+          <%= button_to "Destroy", @btn_path, method: :delete, data: { turbo: false }, class: "btn btn-danger m-4" %>
+        <% end %>
+        <%= link_to @link_text, @link_path, data: { turbo: false }, class: "btn btn-primary m-4" %>
+      </div>
+    </div>
+    <div class="card-body">
+      <%= content%>
+    </div>
+  </div>
+</div>
+
+
