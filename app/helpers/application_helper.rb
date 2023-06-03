@@ -11,4 +11,8 @@ module ApplicationHelper
   def format_date_time(date_time)
     date_time.in_time_zone.strftime("%-I:%M %p %-m/%-d/%Y")
   end
+
+  def format_day_of_week(day)
+    day.strftime("%A")
+  end
 end
