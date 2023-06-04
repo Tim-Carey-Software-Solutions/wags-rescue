@@ -1,7 +1,7 @@
-<%= render AdminCardComponent.new(title: @event.location, link_text: "Edit #{@event.location}", link_path: edit_admin_event_path(@event), btn_path: admin_event_path(@event)) do %>
-  <hr>
+<div class="container mx-auto mt-10 px-12 hidden lg:block">
+  <%= render AdminCardComponent.new(title: @event.location, link_text: "Edit #{@event.location.truncate(12)}", link_path: edit_admin_event_path(@event), btn_path: admin_event_path(@event)) do %>
+    <hr>
 
-  <div class="container mx-auto mt-10 px-12">
     <div class="grid grid-cols-3">
       <div class="mb-2">LOCATION</div>
       <div class="mb-4"><%= @event.location %></div>
@@ -31,6 +31,27 @@
       <div class="mb-2">DIRECTIONS</div>
       <div><%= link_to @event.directions, @event.directions, class: "link link-primary", target: "_blank" %></div>
     </div>
+  <% end %>
+</div>
 
+<div class="grid md:grid-cols-3 grid-cols-1">
+  <div class="lg:mt-8 lg:me-10 md:block hidden mt-4">
+    <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Users", admin_users_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Customers", admin_customers_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Adoption Applications", "#", data: { turbo: false }, class: "link link-primary" %>
   </div>
-<% end %>
+  <div>
+    <%= render CardComponent.new(title: @event.location) do %>
+      <p><%= format_day_of_week(@event.when) %>, <%= format_date(@event.when) %></p>
+      <p><%= format_time(@event.start) %> - <%= format_time(@event.end) %></p>
+      <p><%= @event.address %></p>
+      <p><%= link_to @event.directions, @event.directions, class: "link link-primary" %></p>
+      <div class="card-actions flex-col justify-center items-center mt-4">
+        <%= link_to "Edit", edit_admin_event_path(@event), class: "btn btn-primary" %>
+        <%= link_to "Back", admin_events_path, class: "btn btn-accent" %>
+        <%= button_to "Delete", admin_event_path(@event), method: :delete, class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+</div>

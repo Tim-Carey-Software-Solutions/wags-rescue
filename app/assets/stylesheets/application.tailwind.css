@@ -11,3 +11,28 @@
 }
 
 */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-content {
+    display: none;
+    position: absolute;
+    width: 200px; /* Adjust the width as per your requirement */
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tooltip:hover .tooltip-content {
+    display: block;
+}
+

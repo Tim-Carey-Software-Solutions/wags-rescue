@@ -1,14 +1,14 @@
 <div class="flex justify-between mb-4">
-  <div class="mt-8 me-10">
-    <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary block mb-4"  %>
+  <div class="lg:mt-8 lg:me-10 lg:block md:block hidden">
+    <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
     <%= link_to "Users", admin_users_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
     <%= link_to "Customers", admin_customers_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
     <%= link_to "Adoption Applications", "#", data: { turbo: false }, class: "link link-primary" %>
   </div>
-  <div class="card w-full bg-base-100 h-[80vh] mb-10 shadow-xl">
-    <div class="flex justify-between items-center">
+  <div class="card lg:w-full bg-base-100 lg:h-[80vh] mb-10 shadow-xl <%= @extra_classes %>">
+    <div class="flex justify-between items-center lg:flex-row flex-col">
       <h2 class="card-title m-4"><%= @title %></h2>
-      <div class="card-actions">
+      <div class="card-actions lg:block hidden flex justify-center items-center mx-2">
         <% if @btn_path %>
           <%= button_to "Destroy", @btn_path, method: :delete, data: { turbo: false }, class: "btn btn-danger m-4" %>
         <% end %>
@@ -17,8 +17,8 @@
         <% end %>
       </div>
     </div>
-    <div class="card-body">
-      <%= content%>
+    <div class="card-body p-4">
+      <%= content %>
     </div>
   </div>
 </div>
