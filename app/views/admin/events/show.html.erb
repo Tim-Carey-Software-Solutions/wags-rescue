@@ -1,5 +1,5 @@
 <div class="container mx-auto mt-10 px-12 hidden lg:block">
-  <%= render AdminCardComponent.new(title: @event.location, link_text: "Edit #{@event.location.truncate(12)}", link_path: edit_admin_event_path(@event), btn_path: admin_event_path(@event)) do %>
+  <%= render AdminCardComponent.new(title: @event.location, link_text: "Edit", link_path: edit_admin_event_path(@event), btn_path: admin_event_path(@event)) do %>
     <hr>
 
     <div class="grid grid-cols-3">
