@@ -1,30 +1,63 @@
-<%= render AdminCardComponent.new(title: "Users", link_text: "New User", link_path: new_admin_user_path) do %>
-  <div data-controller="admin-link" class="overflow-x-auto">
-    <table class="table w-full">
-      <thead>
-      <tr>
-        <th>Email</th>
-        <th>Admin</th>
-        <th>Created At</th>
-        <th></th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @users.each do |user| %>
-        <tr class="hover cursor-pointer" data-url="<%= admin_user_path(user) %>">
-          <td><%= user.email %></td>
-          <% if user.admin? %>
-            <td>Yes</td>
-          <% else %>
-            <td>No</td>
-          <% end %>
-          <td><%= format_date_time(user.created_at) %></td>
-          <td><%= link_to "Edit", edit_admin_user_path(user), class: "link link-primary" %></td>
-          <td><%= button_to "Delete", admin_user_path(user), method: :delete, data: { turbo: false }, class: "link text-red-400 hover:text-primary/80" %></td>
+<div class="hidden xl:block">
+  <%= render AdminCardComponent.new(title: "Users", link_text: "New User", link_path: new_admin_user_path) do %>
+    <div data-controller="admin-link" class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th>Admin</th>
+          <th class="hidden xl:block">Created At</th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr class="hover cursor-pointer" data-url="<%= admin_user_path(user) %>">
+            <td><%= user.email %></td>
+            <% if user.admin? %>
+              <td>Yes</td>
+            <% else %>
+              <td>No</td>
+            <% end %>
+            <td class="hidden xl:block"><%= format_date_time(user.created_at) %></td>
+            <td><%= link_to "Edit", edit_admin_user_path(user), class: "link link-primary" %></td>
+            <td><%= button_to "Delete", admin_user_path(user), method: :delete, data: { turbo: false }, class: "link text-red-400 hover:text-primary/80" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
+
+<div class="grid md:grid-cols-3 xl:hidden grid-cols-1">
+  <div class="lg:mt-8 lg:me-10 md:block hidden mt-4">
+    <h2 class="text-primary text-3xl mb-4">Manage Users</h2>
+    <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Users", admin_users_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Customers", admin_customers_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Adoption Applications", "#", data: { turbo: false }, class: "link link-primary" %>
   </div>
-<% end %>
+  <div>
+    <div class="flex justify-center">
+      <%= link_to "New User", new_admin_user_path, class: "btn btn-primary" %>
+    </div>
+    <% @users.each do |user| %>
+      <%= render CardComponent.new(title: user.email) do %>
+        <p>
+          <% if user.admin? %>
+            Admin
+            <span>Yes</span>
+          <% else %>
+            Admin
+            <span>No</span>
+          <% end %>
+        </p>
+        <div class="card-actions">
+          <%= link_to "View User", admin_user_path(user), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,15 +1,17 @@
-class Admin::CustomersController < ApplicationController
+class Admin::CustomersController < Admin::BaseController
   before_action :set_customer, only: [:show, :destroy]
 
   def index
     @customers = Customer.all
+    authorize @customers
   end
 
   def show
-
+    authorize @customer
   end
 
   def destroy
+    authorize @customer
     @customer.destroy
 
     respond_to do |format|

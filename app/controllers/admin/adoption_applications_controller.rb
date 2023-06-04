@@ -1,19 +1,23 @@
-class Admin::AdoptionApplicationsController < ApplicationController
+class Admin::AdoptionApplicationsController < Admin::BaseController
   before_action :set_adoption_application, only: [:show, :destroy, :update, :edit]
 
   def index
     @adoption_applications = AdoptionApplication.all.order(created_at: :desc)
+    authorize @adoption_applications
   end
 
   def new
     @adoption_application = AdoptionApplication.new
+    authorize @adoption_application
   end
 
   def show
+    authorize @adoption_application
   end
 
   def create
     @adoption_application = AdoptionApplication.new(adoption_application_params)
+    authorize @adoption_application
     if @adoption_application.save
       redirect_to root_path, notice: "Thank you for your application! We will be in touch soon."
     else
@@ -23,9 +27,11 @@ class Admin::AdoptionApplicationsController < ApplicationController
 
 
   def edit
+    authorize @adoption_application
   end
 
   def update
+    authorize @adoption_application
     if @adoption_application.update(adoption_application_params)
       redirect_to admin_adoption_application_path(@adoption_application), notice: "Application updated"
     else
@@ -34,7 +40,9 @@ class Admin::AdoptionApplicationsController < ApplicationController
   end
 
   def destroy
-
+    authorize @adoption_application
+    @adoption_application.destroy
+    redirect_to admin_adoption_applications_path, notice: "Application deleted"
   end
 
   private

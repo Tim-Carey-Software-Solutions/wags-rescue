@@ -1,19 +1,23 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:edit, :show, :update, :destroy]
 
   def index
     @users = User.all
+    authorize @users
   end
 
   def new
     @user = User.new
+    authorize @user
   end
 
   def show
+    authorize @user
   end
 
   def create
     @user = User.new(user_params)
+    authorize @user
 
     respond_to do |format|
       if @user.save
@@ -25,9 +29,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
+    authorize @user
   end
 
   def update
+    authorize @user
 
     respond_to do |format|
       if @user.update(user_params)
@@ -40,6 +46,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    authorize @user
     @user.destroy
 
     respond_to do |format|
