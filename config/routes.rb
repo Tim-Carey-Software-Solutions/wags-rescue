@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :events
     resources :customers
     resources :users
-
+    resources :adoption_applications
     root to: redirect('/admin/events')
   end
   devise_for :users

@@ -1,46 +1,62 @@
-module Admin
-  class AdoptionApplicationsController < ApplicationController
-    # Overwrite any of the RESTful controller actions to implement custom behavior
-    # For example, you may want to send an email after a foo is updated.
-    #
-    # def update
-    #   super
-    #   send_foo_updated_email(requested_resource)
-    # end
+class Admin::AdoptionApplicationsController < ApplicationController
+  before_action :set_adoption_application, only: [:show, :destroy, :update, :edit]
 
-    # Override this method to specify custom lookup behavior.
-    # This will be used to set the resource for the `show`, `edit`, and `update`
-    # actions.
-    #
-    # def find_resource(param)
-    #   Foo.find_by!(slug: param)
-    # end
+  def index
+    @adoption_applications = AdoptionApplication.all.order(created_at: :desc)
+  end
 
-    # The result of this lookup will be available as `requested_resource`
+  def new
+    @adoption_application = AdoptionApplication.new
+  end
 
-    # Override this if you have certain roles that require a subset
-    # this will be used to set the records shown on the `index` action.
-    #
-    # def scoped_resource
-    #   if current_user.super_admin?
-    #     resource_class
-    #   else
-    #     resource_class.with_less_stuff
-    #   end
-    # end
+  def show
+  end
 
-    # Override `resource_params` if you want to transform the submitted
-    # data before it's persisted. For example, the following would turn all
-    # empty values into nil values. It uses other APIs such as `resource_class`
-    # and `dashboard`:
-    #
-    # def resource_params
-    #   params.require(resource_class.model_name.param_key).
-    #     permit(dashboard.permitted_attributes).
-    #     transform_values { |value| value == "" ? nil : value }
-    # end
+  def create
+    @adoption_application = AdoptionApplication.new(adoption_application_params)
+    if @adoption_application.save
+      redirect_to root_path, notice: "Thank you for your application! We will be in touch soon."
+    else
+      render :new
+    end
+  end
 
-    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    # for more information
+
+  def edit
+  end
+
+  def update
+    if @adoption_application.update(adoption_application_params)
+      redirect_to admin_adoption_application_path(@adoption_application), notice: "Application updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+
+  end
+
+  private
+
+  def set_adoption_application
+    @adoption_application = AdoptionApplication.find(params[:id])
+  end
+
+  def adoption_application_params
+    params.require(:adoption_application).permit(:name_of_dog, :name, :age, :street_address, :city, :state, :zip, :phone, :work_phone,
+                                                 :occupation, :email, :how_many_adults_in_house, :how_many_children_in_house, :type_of_house, :childrens_ages, :own_or_rent, :landlord_or_hoa_name,
+                                                 :landlord_or_hoa_address, :landlord_or_hoa_phone, :fenced_yard, :size_of_fenced_portion, :willing_to_fence, :can_dog_go_over_fence, :any_medical_or_physical_limitations,
+                                                 :medical_conditions_list, :household_activity_level, :reason_for_new_dog, :list_all_pets, :past_pets_and_type, :ever_trained_dogs, :commands_taught,
+                                                 :correcting_methods, :familiar_with_crate_training, :willing_to_use_crate_training, :daily_hours_dog_alone,
+                                                 :where_will_dog_spend_days, :where_will_dog_sleep, :how_will_dog_exercise, :books_read_dog_training,
+                                                 :does_family_want_dog, :primary_caregiver, :adult_visitors_monthly, :children_visitors_monthly,
+                                                 :backup_dog_name, :gender_preference, :age_preference, :consider_special_needs_dog, :financially_prepared,
+                                                 :previous_dog_health_issues, :currently_have_vet, :allow_contact_vet, :vets_name,
+                                                 :vets_address, :vets_phone, :personal_ref_one, :personal_ref_two, :personal_ref_three,
+                                                 :personal_ref_four, :out_of_town_caregiver, :bring_dog_with_moving, :wags_referrer,
+                                                 :additional_information, :agree_to_heartworm, :accept_responsibilities,
+                                                 :drivers_license, :name_on_license, :drivers_license_state, additional_dog_activities: []
+    )
   end
 end

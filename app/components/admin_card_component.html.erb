@@ -3,7 +3,7 @@
     <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
     <%= link_to "Users", admin_users_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
     <%= link_to "Customers", admin_customers_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
-    <%= link_to "Adoption Applications", "#", data: { turbo: false }, class: "link link-primary" %>
+    <%= link_to "Adoption Applications", admin_adoption_applications_path, data: { turbo: false }, class: "link link-primary" %>
   </div>
   <div class="card lg:w-full bg-base-100 xl:h-[83vh] mb-10 shadow-xl <%= @extra_classes %>">
     <div class="flex justify-between items-center lg:flex-row flex-col">

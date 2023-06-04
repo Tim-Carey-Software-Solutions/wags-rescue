@@ -1,0 +1,55 @@
+<div data-controller="admin-link" class="overflow-x-auto hidden xl:block ">
+  <%= render AdminCardComponent.new(title: "Adoption Applications", link_text: nil, link_path: nil) do %>
+    <table class="table w-full">
+      <thead>
+      <tr>
+        <th>Dog Name</th>
+        <th>Applicant Name</th>
+        <th>Street Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @adoption_applications.each do |application| %>
+        <tr class="hover cursor-pointer" data-url="<%= admin_adoption_application_path(application) %>">
+          <td><%= application.name_of_dog %></td>
+          <td><%= application.name %></td>
+          <td><%= application.street_address %></td>
+          <td><%= application.city %></td>
+          <td><%= application.state.upcase %></td>
+          <td><%= link_to "Edit", edit_admin_adoption_application_path(application), class: "link link-primary" %></td>
+          <td><%= button_to "Delete", admin_adoption_application_path(application), method: :delete, data: { turbo: false }, class: "link text-red-400 hover:text-primary/80" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+<div class="grid md:grid-cols-3 xl:hidden grid-cols-1">
+  <div class="lg:mt-8 lg:me-10 md:block hidden mt-4">
+    <h2 class="text-primary text-3xl mb-4">Manage Applications</h2>
+    <%= link_to "Events", admin_events_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Users", admin_users_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Customers", admin_customers_path, data: { turbo: false }, class: "link link-primary block mb-4" %>
+    <%= link_to "Adoption Applications", "#", data: { turbo: false }, class: "link link-primary" %>
+  </div>
+  <div>
+    <% @adoption_applications.each do |application| %>
+      <%= render CardComponent.new(title: "Adoption Applications") do %>
+        <p><%= application.name_of_dog %></p>
+        <p><%= application.name %></p>
+        <p><%= application.street_address %></p>
+        <p><%= application.city %></p>
+        <p><%= application.state.upcase %></p>
+        <div class="card-actions">
+          <%= link_to "View Application", admin_adoption_application_path(application), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
