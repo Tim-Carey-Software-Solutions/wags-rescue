@@ -1,6 +1,6 @@
-<h1 class="text-5xl text-primary mb-4">Donate To Wags</h1>
+<h1 class="text-3xl text-primary mb-4">Donate To Wags</h1>
 <hr>
-<div class="grid 2xl:grid-cols-2 xl:grid-cols-1 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4">
+<div class="grid xl:grid-cols-2 just grid-cols-1 gap-4">
   <%= render CardComponent.new(title: "Where the Money Goes", extra_body_classes: "items-center text-center") do %>
     <p>
       All donations go directly towards helping animals in overcrowded and underfunded facilities or the medical
@@ -18,7 +18,7 @@
     <%= render "recurring_donations/monthly_donation_form" %>
   <% end %>
 </div>
-<div class="grid 2xl:grid-cols-3 xl:grid-cols-1  lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-4 mb-4">
+<div class="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-4">
 
   <%= render CardComponent.new(title: "Feed a Homeless Pet", extra_body_classes: "text-center items-center") do %>
     <figure><%= image_tag "feeddogs.png" %></figure>
