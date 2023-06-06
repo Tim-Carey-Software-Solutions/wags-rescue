@@ -18,5 +18,6 @@ module WagsRescue
     #
     config.time_zone = "Eastern Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.css_compressor = nil
   end
 end
