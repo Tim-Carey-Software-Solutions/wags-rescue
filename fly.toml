@@ -9,6 +9,8 @@ kill_timeout = 5
 primary_region = "ewr"
 processes = []
 
+console_command = "/rails/bin/rails console"
+
 [build]
 
 [env]
