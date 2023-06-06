@@ -1,7 +1,7 @@
-<div>
-  <h3 class="text-3xl text-primary mb-4 mt-4">Upcoming Events</h3>
-  <hr>
-  <%= render CardComponent.new(title: "Next Meet & Greet Event", extra_container_classes: "2xl:w-full") do %>
+<h1 class="text-3xl text-primary mb-4">Upcoming Events</h1>
+<hr>
+<div class="grid grid-cols-1 gap-4">
+  <%= render CardComponent.new(title: "Next Meet & Greet Event", extra_container_classes: "w-full") do %>
     <p class="font-bold"><%= format_day_of_week(@first_future_event.when) %>
       , <%= format_date(@first_future_event.when) %></p>
     <p class="font-bold"><%= format_time(@first_future_event.start) %> - <%= format_time(@first_future_event.end) %></p>
@@ -28,24 +28,24 @@
       src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&q=<%= @first_future_event.address %>">
     </iframe>
   <% end %>
-  <div class="flex flex-col sm:flex-row mb-4 sm:flex-wrap sm:-mx-2 gap-4">
-    <% @events.each do |event| %>
-      <% if event.when >= Date.today %>
-        <%= render CardComponent.new(title: event.location) do %>
-          <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
-          <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>
-          <p><%= event.address %></p>
-          <div class="card-actions">
-            <iframe
-              style="border:0"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&q=<%= event.address %>">
-            </iframe>
-          </div>
-        <% end %>
+</div>
+
+
+<div class="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-4">
+  <% @events.each do |event| %>
+    <% if event.when >= Date.today %>
+      <%= render CardComponent.new(title: event.location, extra_container_classes: "sm:w-96") do %>
+        <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
+        <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>
+        <p><%= event.address %></p>
+        <iframe
+          style="border:0"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&q=<%= event.address %>">
+        </iframe>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>
