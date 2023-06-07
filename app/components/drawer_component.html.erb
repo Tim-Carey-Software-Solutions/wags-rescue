@@ -1,6 +1,6 @@
-<div class="drawer lg:drawer-open">
+<div class="drawer h-full lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle"/>
-  <div class="drawer-content relative">
+  <div class="drawer-content">
     <label for="my-drawer-2" tabindex="0" class="btn btn-ghost lg:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
@@ -16,14 +16,14 @@
   <div class="drawer-side">
     <label for="my-drawer-2" class="drawer-overlay"></label>
 
-    <ul class="menu p-4 w-64 h-full bg-base-200 text-base-content">
+    <ul class="menu p-4 w-64 h-full bg-base-100 text-base-content">
       <%= link_to root_path, class: "btn flex justify-start mb-2 btn-ghost normal-case text-xl" do %>
         <%= image_tag "wags_logo.png", class: "w-10 h-10 mr-2" %>
         Wags Rescue
       <% end %>
       <li><%= link_to "Home", root_path %></li>
       <details class="dropdown">
-        <summary class="btn capitalize font-normal btn-block justify-start">
+        <summary class="btn capitalize bg-base-100 border-0 font-normal btn-block justify-start">
           Adopt
           <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -37,7 +37,7 @@
         </ul>
       </details>
       <details class="dropdown">
-        <summary class="btn font-normal capitalize btn-block justify-start">
+        <summary class="btn font-normal bg-base-100 border-0 capitalize btn-block justify-start">
           Foster
           <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -54,7 +54,7 @@
       <li><%= link_to "Wish List", wishlist_path %></li>
       <li><%= link_to "AmazonSmile", amazon_smile_path %></li>
       <details class="dropdown">
-        <summary class="btn capitalize font-normal btn-block justify-start">
+        <summary class="btn capitalize bg-base-100 border-0 font-normal btn-block justify-start">
           About Us
           <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
