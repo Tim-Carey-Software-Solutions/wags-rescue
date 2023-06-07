@@ -8,9 +8,6 @@
       <p class="font-bold"><%= format_time(@first_future_event.start) %>
         - <%= format_time(@first_future_event.end) %></p>
       <p class="font-extrabold text-lg text-red-500">Meet & Greet ONLY</p>
-      <%= link_to @first_future_event.directions, target: "_blank", class: "link link-primary" do %>
-        <h2 class="font-bold text-lg"><%= @first_future_event.location %></h2>
-      <% end %>
       <p class="font-bold mb-4"><%= @first_future_event.address %></p>
       <p>If you are interested in adopting at one of our events, you can submit
         an <%= link_to "adoption application", new_adoption_application_path, class: "link link-primary" %> and get
