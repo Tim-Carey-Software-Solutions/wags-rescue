@@ -10,15 +10,85 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :one_time_donations, :recurring_donations, :feed_homeless_pets, :vaccinate_pets, :stop_overpopulations, only: [:new, :cancel] do
+  resources :one_time_donations, :recurring_donations, :feed_homeless_pets, :vaccinate_pets, :stop_overpopulations, only: [:new] do
     collection do
+      get :success
+      get :cancel
+    end
+  end
+
+  resources :donate_dog_beds, only: [:new] do
+    collection do
+      get :success
+      get :cancel
+    end
+  end
+
+  resources :donate_dog_beds, only: [] do
+    collection do
+      get :small_bed
+      get :large_bed
+      get :cancel
       get :success
     end
   end
 
-  resources :donate_dog_beds, only: [:new, :cancel] do
+  resources :donate_dog_bowls, only: [] do
+    collection do
+      get :small_bowl
+      get :large_bowl
+      get :cancel
+      get :success
+    end
+  end
+
+  resources :donate_dog_collars, only: [] do
+    collection do
+      get :small_collar
+      get :large_collar
+      get :cancel
+      get :success
+    end
+  end
+
+  resources :donate_dog_crates, only: [] do
+    collection do
+      get :small_crate
+      get :large_crate
+      get :cancel
+      get :success
+    end
+  end
+
+  resources :donate_dog_leashes, only: [] do
+    collection do
+      get :slip_leash
+      get :clip_leash
+      get :cancel
+      get :success
+    end
+  end
+
+  resources :donate_dog_toys, only: [] do
+    collection do
+      get :small_toy
+      get :large_toy
+      get :success
+      get :cancel
+    end
+  end
+
+  resources :donate_puppy_pads, only: [:new] do
     collection do
       get :success
+      get :cancel
+    end
+  end
+
+  resources :donate_dog_treats, only: [:new] do
+    collection do
+      get :success
+      get :cancel
     end
   end
   

@@ -52,12 +52,12 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Small Bed</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", small_bed_donate_dog_beds_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
 
       <div>
         <p>Large Bed</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", large_bed_donate_dog_beds_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -67,12 +67,12 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Small Bowl</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", small_bowl_donate_dog_bowls_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
 
       <div>
         <p>Large Bowl</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", large_bowl_donate_dog_bowls_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -84,12 +84,12 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Small Collar</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", small_collar_donate_dog_collars_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
 
       <div>
         <p>Large Collar</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", large_collar_donate_dog_collars_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -99,12 +99,12 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Small Crate</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", small_crate_donate_dog_crates_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
 
       <div>
         <p>Large Crate</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", large_crate_donate_dog_crates_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -116,12 +116,12 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Slip Leash</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", slip_leash_donate_dog_leashes_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
 
       <div>
         <p>Clip Leash</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", clip_leash_donate_dog_leashes_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -131,12 +131,12 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Small Toy</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", small_toy_donate_dog_toys_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
 
       <div>
         <p>Large Toy</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", large_toy_donate_dog_toys_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -148,7 +148,7 @@
     <div class="grid grid-cols-2 mt-2">
       <div>
         <p>Puppy Pads</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", new_donate_puppy_pad_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
@@ -159,7 +159,7 @@
 
       <div>
         <p>Dog Treats</p>
-        <button class="btn btn-warning">Donate</button>
+        <%= link_to "Donate", new_donate_dog_treat_path, data: { turbo: false }, class: "btn btn-warning" %>
       </div>
     </div>
   <% end %>
