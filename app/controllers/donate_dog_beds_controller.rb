@@ -1,4 +1,5 @@
 class DonateDogBedsController < ApplicationController
+  include PaymentSuccessRedirectHelper
 
   def small_bed
 
@@ -21,14 +22,14 @@ class DonateDogBedsController < ApplicationController
   end
 
   def success
-    redirect_to wishlist_path, notice: "Thank you for your donation!"
+    wishlist_page_success_redirect
   end
 
   def large_bed
     result = StripeCheckout.call(
       success_url: success_donate_dog_beds_url,
       cancel_url: wishlist_url,
-      price: ENV['STRIPE_DONATE_SMALL_BED_PRICE_ID']
+      price: ENV['STRIPE_DONATE_LARGE_BED_PRICE_ID']
     )
 
     respond_to do |format|

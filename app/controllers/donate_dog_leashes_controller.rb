@@ -1,4 +1,6 @@
 class DonateDogLeashesController < ApplicationController
+  include PaymentSuccessRedirectHelper
+
   def slip_leash
 
     result = StripeCheckout.call(
@@ -20,7 +22,7 @@ class DonateDogLeashesController < ApplicationController
   end
 
   def success
-    redirect_to wishlist_path, notice: "Thank you for your donation!"
+    wishlist_page_success_redirect
   end
 
   def clip_leash

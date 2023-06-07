@@ -1,4 +1,5 @@
 class DonateDogToysController < ApplicationController
+  include PaymentSuccessRedirectHelper
   def small_toy
 
     result = StripeCheckout.call(
@@ -20,7 +21,7 @@ class DonateDogToysController < ApplicationController
   end
 
   def success
-    redirect_to wishlist_path, notice: "Thank you for your donation!"
+    wishlist_page_success_redirect
   end
 
   def large_toy
