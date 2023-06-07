@@ -33,7 +33,7 @@ en:
   helpers:
     label:
       adoption_application:
-        backup_dog_name: "Other Dog's interested in"
+        backup_dog_name: "Other dog's interested in"
         bring_dog_with_moving: "Will you bring your dog with you when you move?"
         can_dog_go_over_fence: "Are there any structures that would allow your dog to get over the fence?"
         books_read_dog_training: "What books have you read on dog training?"
