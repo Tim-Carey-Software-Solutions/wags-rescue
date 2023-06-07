@@ -1,25 +1,27 @@
 class DonatePuppyPadsController < ApplicationController
+  include PaymentSuccessRedirectHelper
+
   def new
 
-    session = Stripe::Checkout::Session.create({
-                                                 line_items: [{
-                                                                price: ENV['STRIPE_DONATE_PUPPY_PADS_PRICE_ID'],
-                                                                quantity: 1,
-                                                              }],
-                                                 payment_method_types: ['card'],
-                                                 mode: 'payment',
-                                                 invoice_creation: { enabled: true },
-                                                 success_url: success_donate_puppy_pads_url + "?session_id={CHECKOUT_SESSION_ID}",
-                                                 cancel_url: wishlist_url
-                                               })
+    result = StripeCheckout.call(
+      success_url: success_donate_puppy_pads_url,
+      cancel_url: wishlist_url,
+      price: ENV['STRIPE_DONATE_PUPPY_PADS_PRICE_ID']
+    )
 
-    redirect_to session.url, status: 303, allow_other_host: true
+    respond_to do |format|
+      if result.success?
+        format.html { redirect_to result.session_url, allow_other_host: true }
+      else
+        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: "Something went wrong!" }
+      end
+    end
   end
 
   def cancel
   end
 
   def success
-    redirect_to wishlist_path, notice: "Thank you for your donation!"
+    wishlist_page_success_redirect
   end
 end

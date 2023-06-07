@@ -1,27 +1,27 @@
 class VaccinatePetsController < ApplicationController
+  include QuantityHelper
+  include PaymentSuccessRedirectHelper
 
   def new
-    quantity = params[:quantity].blank? ? 1 : params[:quantity].to_i
+    result = StripeCheckout.call(
+      success_url: success_vaccinate_pets_url,
+      cancel_url: donate_url,
+      price: ENV['STRIPE_VACCINATE_PET_PRICE_ID'],
+      quantity: quantity
+    )
 
-    session = Stripe::Checkout::Session.create({
-                                                 line_items: [{
-                                                                price: ENV['STRIPE_VACCINATE_PET_PRICE_ID'],
-                                                                quantity: quantity,
-                                                              }],
-                                                 payment_method_types: ['card'],
-                                                 mode: 'payment',
-                                                 invoice_creation: { enabled: true },
-                                                 success_url: success_vaccinate_pets_url + "?session_id={CHECKOUT_SESSION_ID}",
-                                                 cancel_url: donate_url,
-                                               })
-
-    redirect_to session.url, status: 303, allow_other_host: true
+    respond_to do |format|
+      if result.success?
+        format.html { redirect_to result.session_url, allow_other_host: true }
+      else
+        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: "Something went wrong!" }
+      end
+    end
   end
 
   def success
-    redirect_to donate_path, notice: "Thank you for your donation to vaccinate a pet!"
+    donate_page_success_redirect
   end
-
   def cancel
   end
 end
