@@ -6,15 +6,21 @@ Rails.application.routes.draw do
       resources :events
 
       root to: "events#index"
-    end
+  end
+
   devise_for :users
-  get "feed_homeless_pets/new"
-  get "recurring_donations/new"
-  get "one_time_donations/new"
-  get "one_time_donations/cancel"
-  get "one_time_donations/success"
-  get "vaccinate_pets/new"
-  get "stop_overpopulation/new"
+
+  resources :one_time_donations, :recurring_donations, :feed_homeless_pets, :vaccinate_pets, :stop_overpopulations, only: [:new, :cancel] do
+    collection do
+      get :success
+    end
+  end
+
+  resources :donate_dog_beds, only: [:new, :cancel] do
+    collection do
+      get :success
+    end
+  end
   
   root "pages#index"
 
@@ -37,14 +43,5 @@ Rails.application.routes.draw do
   # Send contact email path
   post "/send_email", to: "contact#send_email", as: "send_email"
 
-  resources :one_time_donations do
-    get :cancel
-    get :success
-    get :new
-  end
-
   resources :adoption_applications
-
-  get "/recurring_donations/new", to: "recurring_donations#new", as: "new_recurring_donation"
-  get "/recurring_donations/success", to: "recurring_donations#success", as: "success_recurring_donations"
 end

@@ -11,7 +11,6 @@ class RecurringDonationsController < ApplicationController
       donate_url: donate_url,
     )
 
-
     respond_to do |format|
       if result.success?
         session[:interval] = params[:interval]
