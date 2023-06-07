@@ -1,4 +1,45 @@
 <h3 class="text-3xl mb-4 lg:text-5xl text-primary">About Us</h3>
 <hr>
-<h3 class="text-1xl mb-4 lg:text-3xl text-primary">Who We Are</h3>
-<hr>
+<div class="grid xl:grid-cols-3 grid-cols-1 gap-2 mb-4">
+  <%= render CardComponent.new(title: "Who We Are", extra_title_classes: "text-primary") do %>
+    <p>
+      Wags Rescue & Referral is a small group of volunteers from Bucks County, Philadelphia and Montgomery County, PA
+      that
+      started because they wanted to help dogs affected by Hurricane Katrina by placing them in loving and safe homes.
+      Although Hurricane Katrina prompted a group of people such as ourselves to reach out and help, there are still
+      many
+      other natural disasters that continue to give us a reason to keep going and rescue animals. Wags continues to work
+      with a shelter down south to find loving families for their dogs.
+    </p>
+  <% end %>
+
+  <%= render CardComponent.new(title: "What We Do", extra_title_classes: "text-primary") do %>
+    <p>
+      We save dogs from gassing shelters in the south and bring them to foster homes in Pennsylvania until we can find
+      them a forever family. To do this, the dogs first spend time with fosters in their home states until they are
+      brought up to date on shots and receive veterinary certification to come to Pennsylvania. Once in PA, they stay
+      with their foster families. To help get these doges adopted, we
+      hold <%= link_to "adoption events", events_path, class: "link link-primary" %> almost every week. The events
+      are open to the public and there are always lots of dogs to see. We also
+      use <%= link_to "Petfinder", "http://www.petfinder.com/pet-search?shelter_id=PA562&sort=identifier", target: "_blank", class: "link link-primary" %>
+      and Adopt a Pet to
+      advertise our dogs online. We also maintain this website to help keep people up to date on events and offer
+      information about Wags, adopting, fostering, and more.
+    </p>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Wags is a 501(c)3 Non-Profit Organization", extra_title_classes: "text-primary") do %>
+    <p>
+      Any donations that we receive are tax deductible. All of the money that Wags receives is used to care for the
+      dogs. Our goal as an organization is to complete families everyday, as well as heighten awareness that no animal,
+      of any kind, is disposable! In order to fulfill our mission of finding loving families for animals in need, we
+      participate in many rescue oriented events such as The Annual Debella Walk, Philly Fit Fest, and Hatboro Car Show
+      (just to name a few). We are active members
+      of <%= link_to "Petfinder", "http://www.petfinder.com/pet-search?shelter_id=PA562&sort=identifier", target: "_blank", class: "link link-primary" %>
+      and rely heavily on word of mouth. Most people are
+      unaware that there are many extremely underfunded and overcrowed shelters even in major cities like Philadelphia.
+      We are affiliated with several local Pennsylvania groups for the betterment of the Tri-State area. The goal of
+      these groups is to make the Delaware Valley area a no or low kill area.
+    </p>
+  <% end %>
+</div>
