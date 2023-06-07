@@ -1,1 +1,166 @@
-<h1>Wishlist</h1>
+<h3 class="lg:text-5xl text-3xl text-primary mb-4">Wags Wish List</h3>
+<hr>
+
+<div>
+  <p class="mt-4">
+    We need food! We lost our big donor due to relocation
+    and our supplies are getting LOW. Supplies needed are:
+  </p>
+  <ul class="list-disc ml-10 mt-4">
+    <% foods_needed_list.each do |food| %>
+      <li><%= food %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <p class="mt-4">
+    Below is a list of items that we need greatly a
+    nd they always seem to be in short supply.
+  </p>
+  <div class="grid lg:grid-cols-2 grid-cols-1">
+    <ul class="list-disc ml-10 mt-4">
+      <% items_needed_list.first(7).each do |item| %>
+        <li><%= item %></li>
+      <% end %>
+    </ul>
+    <div>
+      <ul class="list-disc ml-10 lg:mt-4">
+        <% items_needed_list.drop(7).each do |item| %>
+          <li><%= item %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4">
+  <p>
+    You can drop these items off at any of
+    our <%= link_to "adoption events", events_path, class: "link link-primary font-bold" %>
+    If you are unable to bring the items to one of our events,
+    please contact us at <%= mail_to "info@wagsrescue.org", class: "link link-primary font-bold" %> to arrange a time
+    and place to meet.
+  </p>
+</div>
+
+<h4 class="text-2xl text-primary mt-4 mb-4">Other Ways To Help</h4>
+<hr>
+<div class="grid grid-cols-2">
+  <%= render CardComponent.new(title: "Donate A Dog Bed", image_src: "dogbed.jpg", image_alt: "Dog Bed") do %>
+    <p>A $20.00 Donation will buy a small bed while a $30.00 Donation will buy a large bed.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Small Bed</p>
+        <%= link_to "Donate", small_bed_donate_dog_beds_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+
+      <div>
+        <p>Large Bed</p>
+        <%= link_to "Donate", large_bed_donate_dog_beds_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Donate A Dog Bowl", image_src: "dogbowls.jpg", image_alt: "Dog Bowl") do %>
+    <p>A $5.00 Donation will buy a small bowl while a $10.00 Donation will buy a large bowl.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Small Bowl</p>
+        <%= link_to "Donate", small_bowl_donate_dog_bowls_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+
+      <div>
+        <p>Large Bowl</p>
+        <%= link_to "Donate", large_bowl_donate_dog_bowls_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="grid grid-cols-2">
+  <%= render CardComponent.new(title: "Donate A Dog Collar", image_src: "dogcollor.jpg", image_alt: "Dog Collar") do %>
+    <p>A $4.00 Donation will buy a small Collar while a $8.00 Donation will buy a large collar.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Small Collar</p>
+        <%= link_to "Donate", small_collar_donate_dog_collars_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+
+      <div>
+        <p>Large Collar</p>
+        <%= link_to "Donate", large_collar_donate_dog_collars_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Donate A Dog Crate", image_src: "dogcrates.jpg", image_alt: "Dog Crate") do %>
+    <p>A $30.00 Donation will buy a small crate while a $60.00 Donation will buy a large crate.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Small Crate</p>
+        <%= link_to "Donate", small_crate_donate_dog_crates_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+
+      <div>
+        <p>Large Crate</p>
+        <%= link_to "Donate", large_crate_donate_dog_crates_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="grid grid-cols-2">
+  <%= render CardComponent.new(title: "Donate A Dog Leash", image_src: "dogleash.jpg", image_alt: "Dog Leash") do %>
+    <p>A $3.00 Donation will buy a slip leash while a $10.00 Donation will buy a clip leash.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Slip Leash</p>
+        <%= link_to "Donate", slip_leash_donate_dog_leashes_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+
+      <div>
+        <p>Clip Leash</p>
+        <%= link_to "Donate", clip_leash_donate_dog_leashes_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Donate A Dog Toy", image_src: "dogtoykong.jpg", image_alt: "Dog Toy Kong") do %>
+    <p>A $10.00 Donation will buy a small dog toy while a $20.00 Donation will buy a large dog toy.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Small Toy</p>
+        <%= link_to "Donate", small_toy_donate_dog_toys_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+
+      <div>
+        <p>Large Toy</p>
+        <%= link_to "Donate", large_toy_donate_dog_toys_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="grid grid-cols-2 mb-4">
+  <%= render CardComponent.new(title: "Donate Puppy Pads", image_src: "dogpuppypads.jpg", image_alt: "Puppy Pads") do %>
+    <p>A $25.00 Donation will buy a box of large puppy pads.</p>
+    <div class="grid grid-cols-2 mt-2">
+      <div>
+        <p>Puppy Pads</p>
+        <%= link_to "Donate", new_donate_puppy_pad_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render CardComponent.new(title: "Donate Dog Treats", image_src: "dogtreats.jpg", image_alt: "Dog Treats") do %>
+    <p>A $15.00 Donation will buy a large box of dog treats.</p>
+    <div class="grid grid-cols-2 mt-2">
+
+      <div>
+        <p>Dog Treats</p>
+        <%= link_to "Donate", new_donate_dog_treat_path, data: { turbo: false }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+</div>

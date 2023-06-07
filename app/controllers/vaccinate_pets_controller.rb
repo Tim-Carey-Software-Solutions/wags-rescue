@@ -11,11 +11,15 @@ class VaccinatePetsController < ApplicationController
                                                  payment_method_types: ['card'],
                                                  mode: 'payment',
                                                  invoice_creation: { enabled: true },
-                                                 success_url: one_time_donations_success_url + "?session_id={CHECKOUT_SESSION_ID}",
+                                                 success_url: success_vaccinate_pets_url + "?session_id={CHECKOUT_SESSION_ID}",
                                                  cancel_url: donate_url,
                                                })
 
     redirect_to session.url, status: 303, allow_other_host: true
+  end
+
+  def success
+    redirect_to donate_path, notice: "Thank you for your donation to vaccinate a pet!"
   end
 
   def cancel
