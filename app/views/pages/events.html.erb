@@ -38,7 +38,7 @@
 
 <div class="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-4">
   <% @events.each do |event| %>
-    <% if event.when >= Date.today && event != @first_future_event %>
+    <% if future_events_except_first?(event) %>
       <%= render CardComponent.new(title: event.location, extra_container_classes: "sm:w-96") do %>
         <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
         <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>

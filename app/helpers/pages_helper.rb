@@ -29,4 +29,8 @@ module PagesHelper
       "Trash Bags"
     ]
   end
+
+  def future_events_except_first?(event)
+    event.when >= Date.today && event != @first_future_event
+  end
 end
