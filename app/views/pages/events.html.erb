@@ -1,39 +1,44 @@
 <h1 class="lg:text-5xl text-3xl text-primary mb-4">Upcoming Events</h1>
 <hr>
 <div class="grid grid-cols-1 gap-4">
-  <%= render CardComponent.new(title: "Next Meet & Greet Event", extra_container_classes: "w-full") do %>
-    <p class="font-bold"><%= format_day_of_week(@first_future_event.when) %>
-      , <%= format_date(@first_future_event.when) %></p>
-    <p class="font-bold"><%= format_time(@first_future_event.start) %> - <%= format_time(@first_future_event.end) %></p>
-    <p class="font-extrabold text-lg text-red-500">Meet & Greet ONLY</p>
-    <%= link_to @first_future_event.directions, target: "_blank", class: "link link-primary" do %>
-      <h2 class="font-bold text-lg"><%= @first_future_event.location %></h2>
+  <% if @first_future_event %>
+    <%= render CardComponent.new(title: "Next Meet & Greet Event", extra_container_classes: "w-full") do %>
+      <p class="font-bold"><%= format_day_of_week(@first_future_event.when) %>
+        , <%= format_date(@first_future_event.when) %></p>
+      <p class="font-bold"><%= format_time(@first_future_event.start) %>
+        - <%= format_time(@first_future_event.end) %></p>
+      <p class="font-extrabold text-lg text-red-500">Meet & Greet ONLY</p>
+      <%= link_to @first_future_event.directions, target: "_blank", class: "link link-primary" do %>
+        <h2 class="font-bold text-lg"><%= @first_future_event.location %></h2>
+      <% end %>
+      <p class="font-bold mb-4"><%= @first_future_event.address %></p>
+      <p>If you are interested in adopting at one of our events, you can submit
+        an <%= link_to "adoption application", new_adoption_application_path, class: "link link-primary" %> and get
+        pre-approved to adopt before the event.</p>
+
+      <p>Before you can take your new pet home, you will need to bring a collar, leash, and ID tag with the pet's name
+        and your contact information. We will not finalize the adoption without these items.</p>
+
+      <p>If you are finalizing an adoption, we only accept cash or check at adoption events.</p>
+
+      <p>For more information, please email <%= mail_to "info@wagsrescue.org", class: "link link-primary" %>.</p>
+      <iframe
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&q=<%= @first_future_event.address %>">
+      </iframe>
     <% end %>
-    <p class="font-bold mb-4"><%= @first_future_event.address %></p>
-    <p>If you are interested in adopting at one of our events, you can submit
-      an <%= link_to "adoption application", new_adoption_application_path, class: "link link-primary" %> and get
-      pre-approved to adopt before the event.</p>
-
-    <p>Before you can take your new pet home, you will need to bring a collar, leash, and ID tag with the pet's name
-      and your contact information. We will not finalize the adoption without these items.</p>
-
-    <p>If you are finalizing an adoption, we only accept cash or check at adoption events.</p>
-
-    <p>For more information, please email <%= mail_to "info@wagsrescue.org", class: "link link-primary" %>.</p>
-    <iframe
-      style="border:0"
-      loading="lazy"
-      allowfullscreen
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/place?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&q=<%= @first_future_event.address %>">
-    </iframe>
+  <% else %>
+    <h3 class="text-primary lg:text-5xl text-3xl mt-4">No upcoming events, check back later!</h3>
   <% end %>
 </div>
 
 
 <div class="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-4">
   <% @events.each do |event| %>
-    <% if event.when >= Date.today %>
+    <% if event.when >= Date.today && event != @first_future_event %>
       <%= render CardComponent.new(title: event.location, extra_container_classes: "sm:w-96") do %>
         <p><%= format_day_of_week(event.when) %>, <%= format_date(event.when) %></p>
         <p><%= format_time(event.start) %> - <%= format_time(event.end) %></p>

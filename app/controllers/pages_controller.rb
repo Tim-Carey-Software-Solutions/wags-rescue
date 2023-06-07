@@ -34,7 +34,6 @@ class PagesController < ApplicationController
   def events
     @events = Event.all.order(when: :asc)
     @first_future_event = Event.where('"when" >= ?', Date.today).order(:when).first
-
   end
 
   def fundraising
