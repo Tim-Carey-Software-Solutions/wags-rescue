@@ -10,7 +10,6 @@ class EventDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     address: Field::String,
     end: Field::Time,
-    directions: Field::String,
     location: Field::String,
     start: Field::Time,
     when: Field::Date,
@@ -39,7 +38,6 @@ class EventDashboard < Administrate::BaseDashboard
     start
     end
     when
-    directions
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,7 +49,6 @@ class EventDashboard < Administrate::BaseDashboard
     start
     end
     when
-    directions
   ].freeze
 
   # COLLECTION_FILTERS
