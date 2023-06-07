@@ -1,6 +1,9 @@
 <div class="card mt-4 bg-base-100 shadow-xl <%= @extra_container_classes %>">
+  <% if @image_src %>
+    <figure><%= image_tag @image_src, alt: @image_alt %></figure>
+  <% end %>
   <div class="card-body <%= @extra_body_classes %>">
-    <h2 class="card-title"><%= @title %></h2>
+    <h2 class="card-title <%= @extra_title_classes %>"><%= @title %></h2>
       <%= content %>
   </div>
 </div>
