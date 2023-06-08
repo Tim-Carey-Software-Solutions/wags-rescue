@@ -22,7 +22,7 @@ class DonateDogCollarsController < ApplicationController
   end
 
   def success
-    include PaymentSuccessRedirectHelper
+    wishlist_page_success_redirect 
   end
 
   def large_collar
