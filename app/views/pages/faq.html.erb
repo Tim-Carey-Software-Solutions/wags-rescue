@@ -1,1 +1,37 @@
-<h1>FAQ</h1>
+<h1>Wags FAQ</h1>
+<hr>
+<div class="grid grid-cols-1 gap-10">
+  <%= render CardComponent.new(title: "", extra_container_classes: "w-full") do %>
+    <p><%= link_to "What are the adoption fees?", "#", class: "link link-primary" %></p>
+    <p><%= link_to "Where is wags located? / Where can I see the dogs?", "http://wagsrescue.com/FAQs.php#AdoptionFee", class: "link link-primary" %></p>
+    <p><%= link_to "How do I get my spay or neuter refund?", "#", class: "link link-primary" %></p>
+    <p><%= link_to "How old does my puppy/dog need to be to be spayed/neutered?", "#", class: "link link-primary" %></p>
+    <p><%= link_to "Who do I have to take the puppy/dog to for spay/neuter?", "#", class: "link link-primary" %></p>
+    <p><%= link_to "How long is the adoption process?", "#", class: "link link-primary" %></p>
+    <p><%= link_to "How do you decide who gets a dog?", "#", class: "link link-primary" %></p>
+  <% end %>
+</div>
+<%= render CardComponent.new(title: "What are the adoption fees?", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+  <div class="flex justify-between flex">
+    <div class="flex flex-col">
+      <p class="font-bold">Age</p>
+      <p>Under 1 year</p>
+      <p>1 year - under 4 years</p>
+      <p>4 yrs - under 6 years</p>
+      <p>6 years and over</p>
+    </div>
+    <div class="flex flex-col">
+      <p class="font-bold">Dogs and Puppies that are spayed/neutered</p>
+      <p>$400</p>
+      <p>$350</p>
+      <p>$250</p>
+      <p>$150</p>
+    </div>
+    <div class="flex flex-col">
+      <p class="font-bold">Dogs and Puppies that are not spayed/neutered</p>
+      <p>$300 + $100 spay/neuter deposit*</p>
+      <p>$250 + $100 Spay/Neuter deposit*</p>
+      <p>$250 + $100 Spay/Neuter deposit*</p>
+      <p>$150 $100 Spay/Neuter deposit*</p>
+    </div>
+<% end %>
