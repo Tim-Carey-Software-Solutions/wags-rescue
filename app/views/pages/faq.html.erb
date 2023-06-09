@@ -1,17 +1,17 @@
-<h1>Wags FAQ</h1>
+<h1 class="lg:text-5xl text-primary text-3xl mb-4">Wags FAQ</h1>
 <hr>
 <div class="grid grid-cols-1 gap-10">
-  <%= render CardComponent.new(title: "", extra_container_classes: "w-full") do %>
-    <p><%= link_to "What are the adoption fees?", "#", class: "link link-primary" %></p>
-    <p><%= link_to "Where is wags located? / Where can I see the dogs?", "http://wagsrescue.com/FAQs.php#AdoptionFee", class: "link link-primary" %></p>
-    <p><%= link_to "How do I get my spay or neuter refund?", "#", class: "link link-primary" %></p>
-    <p><%= link_to "How old does my puppy/dog need to be to be spayed/neutered?", "#", class: "link link-primary" %></p>
-    <p><%= link_to "Who do I have to take the puppy/dog to for spay/neuter?", "#", class: "link link-primary" %></p>
-    <p><%= link_to "How long is the adoption process?", "#", class: "link link-primary" %></p>
-    <p><%= link_to "How do you decide who gets a dog?", "#", class: "link link-primary" %></p>
+  <%= render CardComponent.new(title: "", extra_container_classes: "w-full text-center") do %>
+    <p><%= link_to "What are the adoption fees?", "#adoption-fees", class: "link link-primary" %></p>
+    <p><%= link_to "Where is wags located? / Where can I see the dogs?", "#location", class: "link link-primary" %></p>
+    <p><%= link_to "How do I get my spay or neuter refund?", "#refund", class: "link link-primary" %></p>
+    <p><%= link_to "How old does my puppy/dog need to be to be spayed/neutered?", "#age", class: "link link-primary" %></p>
+    <p><%= link_to "Who do I have to take the puppy/dog to for spay/neuter?", "#who-does-spay", class: "link link-primary" %></p>
+    <p><%= link_to "How long is the adoption process?", "#adoption-process", class: "link link-primary" %></p>
+    <p><%= link_to "How do you decide who gets a dog?", "#who-gets-dog", class: "link link-primary" %></p>
   <% end %>
 </div>
-<%= render CardComponent.new(title: "What are the adoption fees?", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+<%= render CardComponent.new(title: "What are the adoption fees?", html_id: "adoption-fees", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
   <div class="flex justify-between flex">
     <div class="flex flex-col">
       <p class="font-bold">Age</p>
@@ -35,4 +35,85 @@
       <p>$150 $100 Spay/Neuter deposit*</p>
     </div>
   </div>
+<% end %>
+
+<%= render CardComponent.new(title: "Where is Wags located? / Where can I see the dogs?", html_id: "location", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+  <p> We do not have a centralized physical location. All of our dogs are in foster homes. </p>
+  <p>Our mailing address is:</p>
+  <p> Wags Rescue & Referral</p>
+  <p> PO Box 1514</p>
+  <p> Southampton, PA 18966 </p>
+  <p>
+    We host weekly <%= link_to "adoption events", events_path, class: "link link-primary" %> where you can meet many of
+    <%= link_to "our dogs", our_dogs_path, class: "link link-primary" %> in a single location.
+    If you are unable to make it to an event, we may also be able to arrange for you to meet specific dogs
+    by appointment with their respective foster homes. Individual meetings are only available to approved applicants.
+  </p>
+<% end %>
+
+<%= render CardComponent.new(title: "How do I get my spay or neuter refund?", html_id: "refund", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+  <p>If we collected a Spay/Neuter deposit at the time of adoption, please follow all of the instructions below to get
+    your refund.</p>
+  <p>Please email the certificate of Spay/Neuter
+    to: <%= mail_to "refund@wagsrescue.org", class: "link link-primary" %></p>
+  <ul class="list-disc ml-10">
+    <li>
+      You must include adopter's name on the agreement, dog's original Wags name and preferred method of refund: PayPal
+      or check via U.S. mail with your request. If choosing PayPal, please include the PayPal account/email. If choosing
+      check, please include a mailing address for U.S. mail.
+    </li>
+    <li>
+      Should you choose to donate your deposit, please email a copy of the spay/neuter certificate,
+      include the dog's original Wags name and intentions to donate deposit to
+      <%= mail_to "refund@wagsrescue.org", class: "link link-primary" %> and for that we thank you.
+    </li>
+  </ul>
+<% end %>
+
+<%= render CardComponent.new(title: "How old does my puppy/dog need to be to be spayed/neutered?", html_id: "age", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+  <p>Your vet will determine the proper age for your puppy/dog to be spayed/neutered.</p>
+  <p>Typically, puppies should be spayed/neutered no later than 6 months after adoption. While adult dogs should be
+    spayed/neutered within 90 days of adoption.</p>
+  <p>
+    If there is an extenuating circumstance (i.e.: illness, etc.) where your vet feels that the puppy/dog is not able
+    to be spayed/neutered within that timeframe, you must provide documentation from your Vet to Wags. If we have not
+    heard from you after 6 months from a puppy adoption or 3 months after an adult dog adoption, your deposit will be
+    forfeited, and you will no longer be entitled to a refund.
+  </p>
+<% end %>
+
+<%= render CardComponent.new(title: "Who do I have to take the puppy/dog to for spay/neuter?", html_id: "who-does-spay", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+  <p>
+    This is your choice. You can take the puppy to your vet or you can also shop around as there are many low cost
+    spay/neuter programs available.
+  </p>
+<% end %>
+
+<%= render CardComponent.new(title: "How long is the adoption process?", html_id: "adoption-process", extra_title_classes: "text-primary", extra_container_classes: "w-full") do %>
+  <p>
+    Generally it takes five to seven days to process an application. However, this can vary depending on how long it
+    takes to contact your references.
+    Since it can take longer to reach people during the holidays and summer, there may be a greater delay during these
+    periods.
+  </p>
+  <p>
+    We make every effort to process applications in a timely manner, but sometimes applications do get lost in the
+    system. If you do not hear from us within a week of submitting your application, please email us at
+    <%= mail_to "info@wagsrescue.org", class: "link link-primary" %>.
+  </p>
+<% end %>
+
+<%= render CardComponent.new(title: "How do you decide who gets a dog?", html_id: "who-gets-dog", extra_title_classes: "text-primary", extra_container_classes: "w-full mb-4") do %>
+  <p>
+    We believe that a good match between dog and home is essential to successful adoptions. Thus, when placing a dog, we
+    try to find the family that is best suited to that particular dog's personality and needs. Wags does not operate on
+    a first-come, first-served basis. If there are multiple qualified applicants for a dog, we strive to place that dog
+    in the home that seems like the best fit.
+  </p>
+  <p>
+    Occasionally we receive applications from responsible, loving homes that are just not good matches for a specific
+    dog. In such cases, we may decline the application not because we believe the home is unfit, but simply because it's
+    not the right environment for that particular animal. We may suggest alternative dogs who would be more suited for
+    that home.
+  </p>
 <% end %>
