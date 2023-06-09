@@ -1,1 +1,21 @@
-<h1>Amazon Smile</h1>
+<h1 class="lg:text-5xl text-5xl text-primary">Amazon Smile</h1>
+<hr>
+<%= render CardComponent.new(title: "", extra_continer_classes: "w-full") do %>
+  <div class="grid grid-cols-2">
+    <%= link_to "http://smile.amazon.com/ch/20-5592729" do %>
+      <%= image_tag "https://d1ev1rt26nhnwq.cloudfront.net/ccmtblv2.png" %>
+    <% end %>
+    <p>
+      Amazon will donate 0.5% of the price of your eligible AmazonSmile purchases to Wags Rescue & Referral
+      whenever you shop on AmazonSmile. AmazonSmile is the same Amazon you know. 
+      Same products, same prices, same service.
+    </p>
+    <p>To support Wags with AmazonSmile, click on the banner to the left to start shopping now.</p>
+    <p>If you'd like to help us spread the word about Wags on AmazonSmile, please feel free to use the links below to share.</p>
+    <ul class="list-disc ml-10">
+      <li>Share on your website or blog with this link: <%= link_to "", "http://smile.amazon.com/ch/20-5592729" %></li>
+      <li>Share on Twitter with a tweet</p>
+      <li>Share on Facebook with a post</p>
+    </ul>
+  </div>
+<% end %>
