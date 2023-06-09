@@ -1,1 +1,29 @@
-<h1>Our dogs page</h1> <!-- just a placeholder for now -->
+<h1 class="text-primary lg:text-5xl mb-4 text-3xl">Wags Dogs</h1>
+<hr>
+  <div class="grid lg:grid-cols-3 items-center grid-cols-1 mt-4">
+  <%= link_to "https://searchtools.adoptapet.com/pet/38276916-southampton-pennsylvania-hound-unknown-type-mix", target: "_blank" do %>
+    <div class="mb-4">
+      <%= image_tag "https://pet-uploads.adoptapet.com/e/3/1/714922321.jpg" %>
+      <p>Ariel Society</p>
+      <p>Female, Puppy</p>
+      <p>Hound</p>
+    </div>
+  <% end %>
+  <%= link_to "https://searchtools.adoptapet.com/pet/38129269-southampton-pennsylvania-labrador-retriever-mix", target: "_blank" do %> 
+    <div class="mb-4">
+      <%= image_tag "https://pet-uploads.adoptapet.com/d/6/6/711324662.jpg" %>
+      <p>AYA Society</p>
+      <p>Female, Puppy </p>
+      <p>Labrador Retriever</p>
+    </div>
+  <% end %> 
+  <%= link_to  "https://searchtools.adoptapet.com/pet/38276941-southampton-pennsylvania-hound-unknown-type-mix", target: "_blank" do %>
+    <div>
+      <%= image_tag "https://pet-uploads.adoptapet.com/9/d/1/714922902.jpg" %>
+      <p>Belle Society-Elvie Pup</p>
+      <p>Female, Puppy</p>
+      <p>Hound</p>
+    </div>
+  <% end %>
+</div>
+
