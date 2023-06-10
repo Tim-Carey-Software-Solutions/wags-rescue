@@ -87,10 +87,12 @@ class AdoptionApplicationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    id
-    accept_responsibilities
-    additional_dog_activities
-    additional_information
+    name
+    name_of_dog
+    email
+    phone
+    city
+    state
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

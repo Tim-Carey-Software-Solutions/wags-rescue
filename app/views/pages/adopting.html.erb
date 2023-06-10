@@ -1,7 +1,7 @@
 <h1 class="text-center text-2xl font-bold mb-2 text-primary"> Adopting From Wags </h1>
 <div class="w-fit flex flex-col justify-center">
 
-  <%= render CollapseComponent.new(title: "Adoption Guidelines", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
+  <%= render CollapseComponent.new(title: "Adoption Guidelines", extra_container_classes: "place-content-center hover:bg-sky-500/25 rounded-xl") do %>
       <%= render "adoption_guidelines" %>
   <% end %>
 
@@ -36,10 +36,10 @@
     </b>
   </p>
   <p class="text-center mb-2 text-[#3367d6]">
-    <b>
-      <a href="#" target="_blank">I've Read the Above and I am Ready to Complete the Adoption Application
-        <i class="fa-solid fa-arrow-up-right-from-square" style="color: #3367d6;"></i></a>
-    </b>
+    <%= link_to new_adoption_application_path, class: "link link-primary font-bold" do %>
+      I've Read the Above and I am Ready to Complete the Adoption Application
+      <i class="fa-solid fa-arrow-up-right-from-square" style="color: #3367d6;"></i>
+    <% end %>
   </p>
   <div class="flex justify-center">
     <%= button_to "Click here to Pay Your Adoption Fee", "https://www.paypal.com/donate?token=#{ENV['PAYPAL_TOKEN']}", class: "btn btn-primary", target: "_blank" %>

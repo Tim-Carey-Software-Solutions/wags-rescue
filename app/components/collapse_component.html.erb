@@ -1,9 +1,6 @@
-<div tabindex="0" class="collapse collapse-arrow border <%= @extra_container_classes %>">
-  <input type="checkbox" />
-  <div class="collapse-title text-xl text-center <%= @extra_title_classes %>">
-    <%= @title %>
+<details tabindex="0" class="collapse bg-base-200 collapse-arrow <%= @extra_container_classes %>">
+  <summary class="collapse-title text-xl font-medium <%= @extra_title_classes %>"><%= @title %></summary>
+  <div class="collapse-content <%= @extra_content_classes %>"> 
+    <p><%= content %></p>
   </div>
-  <div class="collapse-content <%= @extra_content_classes %>">
-    <%= content %>
-  </div>
-</div>
+</details>
