@@ -32,6 +32,7 @@ group :development do
   gem "dockerfile-rails", ">= 1.3"
   gem "letter_opener"
   gem "web-console"
+  gem "ruby-lsp", require: false
 end
 
 group :test do
