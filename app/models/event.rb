@@ -13,4 +13,5 @@
 #  updated_at :datetime         not null
 #
 class Event < ApplicationRecord
+  validates :when, :start, :end, :location, :address, presence: true
 end
