@@ -1,12 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* CSS */
-.dropdown {
-    display: block;
-}
-
-.dropdown[open] {
-    display: block;
-}
