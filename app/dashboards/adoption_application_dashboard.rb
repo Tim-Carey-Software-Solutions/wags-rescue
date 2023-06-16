@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class AdoptionApplicationDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -78,7 +80,7 @@ class AdoptionApplicationDashboard < Administrate::BaseDashboard
     work_phone: Field::String,
     zip: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

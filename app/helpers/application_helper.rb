@@ -1,14 +1,15 @@
-module ApplicationHelper
+# frozen_string_literal: true
 
+module ApplicationHelper
   def format_time(time)
-    time.strftime("%-I:%M %p")
+    time.strftime('%-I:%M %p')
   end
 
   def format_date(date)
-    date.strftime("%m/%d/%Y")
+    date.strftime('%m/%d/%Y')
   end
 
   def format_day_of_week(date)
-    date.strftime("%A")
+    date.strftime('%A')
   end
 end

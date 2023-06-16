@@ -1,6 +1,7 @@
-class DrawerComponent < ViewComponent::Base
+# frozen_string_literal: true
 
-  def initialize(home: false, my_yield: nil, current_user:, user_signed_in:)
+class DrawerComponent < ViewComponent::Base
+  def initialize(current_user:, user_signed_in:, home: false, my_yield: nil)
     @home = home
     @my_yield = my_yield
     @current_user = current_user
@@ -8,6 +9,6 @@ class DrawerComponent < ViewComponent::Base
   end
 
   def website_link
-    "https://bold-star-9293.fly.dev/"
+    'https://bold-star-9293.fly.dev/'
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAdoptionApplications < ActiveRecord::Migration[7.0]
   def change
     create_table :adoption_applications do |t|

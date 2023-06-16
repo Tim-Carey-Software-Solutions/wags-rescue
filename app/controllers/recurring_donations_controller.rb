@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecurringDonationsController < ApplicationController
   def new
     result = RecurringDonation.call(
@@ -5,7 +7,7 @@ class RecurringDonationsController < ApplicationController
       interval: 'month',
       interval_count: params[:interval],
       success_url: success_recurring_donations_url,
-      donate_url: donate_url
+      donate_url:
     )
 
     respond_to do |format|
@@ -13,7 +15,7 @@ class RecurringDonationsController < ApplicationController
         session[:interval] = params[:interval]
         format.html { redirect_to result.session_url, allow_other_host: true }
       else
-        format.html { render :'pages/donate', status: :unprocessable_entity, alert: "Something went wrong!" }
+        format.html { render :'pages/donate', status: :unprocessable_entity, alert: 'Something went wrong!' }
       end
     end
   end
@@ -21,7 +23,7 @@ class RecurringDonationsController < ApplicationController
   def success
     update_stripe_subscription
     create_customer
-    redirect_to donate_path, notice: "Thank you for your donation!"
+    redirect_to donate_path, notice: 'Thank you for your donation!'
   end
 
   private
@@ -59,7 +61,7 @@ class RecurringDonationsController < ApplicationController
   end
 
   def update_stripe_subscription
-    Stripe::Subscription.update(subscription.id, cancel_at: cancel_at)
+    Stripe::Subscription.update(subscription.id, cancel_at:)
   end
 
   def amount_in_cents

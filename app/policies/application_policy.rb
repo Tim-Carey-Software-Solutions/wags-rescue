@@ -4,7 +4,8 @@ class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
-    raise Pundit::NotAuthorizedError, "must be an admin user" unless user.present? && user.admin?
+    raise Pundit::NotAuthorizedError, 'must be an admin user' unless user.present? && user.admin?
+
     @user = user
     @record = record
   end
@@ -44,9 +45,9 @@ class ApplicationPolicy
     end
 
     def resolve
-      if user.admin?
-        scope.all
-      end
+      return unless user.admin?
+
+      scope.all
     end
 
     private

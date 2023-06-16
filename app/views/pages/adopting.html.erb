@@ -1,34 +1,26 @@
 <h1 class="text-center text-2xl font-bold mb-2 text-primary"> Adopting From Wags </h1>
 <div class="w-full mx-auto">
-
   <%= render CollapseComponent.new(title: "Adoption Guidelines", extra_container_classes: "place-content-center hover:bg-sky-500/25 rounded-xl") do %>
-      <%= render "adoption_guidelines" %>
+    <%= render "adoption_guidelines" %>
   <% end %>
-
   <%= render CollapseComponent.new(title: "Our Adoption Area", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
     <%= render "our_adoption_area" %>
   <% end %>
-
   <%= render CollapseComponent.new(title: "How We Determine What Breed A Dog Is", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
     <%= render "determine_dog_breed" %>
   <% end %>
-
   <%= render CollapseComponent.new(title: "Application Review Process", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
     <%= render "application_review_process" %>
   <% end %>
-
   <%= render CollapseComponent.new(title: "Adoption Agreement", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
     <%= render "application_agreement" %>
   <% end %>
-
   <%= render CollapseComponent.new(title: "Adoption Fees", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
     <%= render "adoption_fees" %>
   <% end %>
-
   <%= render CollapseComponent.new(title: "About The Adoption Fees", extra_container_classes: "hover:bg-sky-500/25 rounded-xl") do %>
     <%= render "about_adoption_fees" %>
   <% end %>
-
   <p class="text-center mb-2 rounded-lg text-primary">
     <b>
       <a class="link link-primary no-underline" href="#">Click Here to View Wags Senior Citizen Adoption Policy

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class DonateDogBedsController < ApplicationController
   include PaymentSuccessRedirectHelper
 
   def small_bed
-
     result = StripeCheckout.call(
       success_url: success_donate_dog_beds_url,
       cancel_url: wishlist_url,
@@ -13,13 +14,12 @@ class DonateDogBedsController < ApplicationController
       if result.success?
         format.html { redirect_to result.session_url, allow_other_host: true }
       else
-        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: "Something went wrong!" }
+        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: 'Something went wrong!' }
       end
     end
   end
 
-  def cancel
-  end
+  def cancel; end
 
   def success
     wishlist_page_success_redirect
@@ -36,7 +36,7 @@ class DonateDogBedsController < ApplicationController
       if result.success?
         format.html { redirect_to result.session_url, allow_other_host: true }
       else
-        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: "Something went wrong!" }
+        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: 'Something went wrong!' }
       end
     end
   end

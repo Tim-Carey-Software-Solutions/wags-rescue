@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdoptionApplicationPolicy < ApplicationPolicy
   def index?
     admin?
@@ -26,7 +28,6 @@ class AdoptionApplicationPolicy < ApplicationPolicy
   def destroy?
     admin?
   end
-
 
   def admin?
     user.admin?

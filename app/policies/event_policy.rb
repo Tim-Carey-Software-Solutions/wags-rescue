@@ -1,5 +1,6 @@
-class EventPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class EventPolicy < ApplicationPolicy
   def index?
     admin?
   end
@@ -27,7 +28,6 @@ class EventPolicy < ApplicationPolicy
   def destroy?
     admin?
   end
-
 
   def admin?
     user.admin?
