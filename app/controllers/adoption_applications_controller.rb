@@ -1,5 +1,6 @@
-class AdoptionApplicationsController < ApplicationController
+# frozen_string_literal: true
 
+class AdoptionApplicationsController < ApplicationController
   def new
     @adoption_application = AdoptionApplication.new
   end
@@ -7,7 +8,7 @@ class AdoptionApplicationsController < ApplicationController
   def create
     @adoption_application = AdoptionApplication.new(adoption_application_params)
     if @adoption_application.save
-      redirect_to root_path, notice: "Thank you for your application! We will be in touch soon."
+      redirect_to root_path, notice: 'Thank you for your application! We will be in touch soon.'
     else
       render :new
     end
@@ -28,7 +29,6 @@ class AdoptionApplicationsController < ApplicationController
                                                  :vets_address, :vets_phone, :personal_ref_one, :personal_ref_two, :personal_ref_three,
                                                  :personal_ref_four, :out_of_town_caregiver, :bring_dog_with_moving, :wags_referrer,
                                                  :additional_information, :agree_to_heartworm, :accept_responsibilities,
-                                                 :drivers_license, :name_on_license, :drivers_license_state, additional_dog_activities: []
-    )
+                                                 :drivers_license, :name_on_license, :drivers_license_state, additional_dog_activities: [])
   end
 end

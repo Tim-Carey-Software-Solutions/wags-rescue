@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdminPolicy < ApplicationPolicy
   def index?
     admin?
@@ -27,9 +29,7 @@ class AdminPolicy < ApplicationPolicy
     admin?
   end
 
-
   def admin?
     user.admin?
   end
-
 end

@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class EventDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -14,7 +16,7 @@ class EventDashboard < Administrate::BaseDashboard
     start: Field::Time,
     when: Field::Date,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -72,5 +74,4 @@ class EventDashboard < Administrate::BaseDashboard
   def display_resource(event)
     event.location
   end
-
 end

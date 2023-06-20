@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateStripeSubscription
   include Interactor
 
@@ -6,13 +8,13 @@ class CreateStripeSubscription
   def call
     session = Stripe::Checkout::Session.create(
       line_items: [{
-                     price: context.price_id,
-                      quantity: 1,
-                   }],
+        price: context.price_id,
+        quantity: 1
+      }],
       payment_method_types: ['card'],
       mode: 'subscription',
-      success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: donate_url,
+      success_url: "#{success_url}?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: donate_url
     )
 
     context.session_url = session.url

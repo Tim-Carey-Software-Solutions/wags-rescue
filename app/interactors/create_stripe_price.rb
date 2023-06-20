@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateStripePrice
   include Interactor
 
@@ -9,8 +11,8 @@ class CreateStripePrice
       currency: 'usd',
       product: ENV['STRIPE_RECURRING_PROD_ID'],
       recurring: {
-        interval: 'month',
-      },
+        interval: 'month'
+      }
     )
 
     context.price_id = price.id

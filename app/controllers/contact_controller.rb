@@ -1,5 +1,6 @@
-class ContactController < ApplicationController
+# frozen_string_literal: true
 
+class ContactController < ApplicationController
   def send_email
     name = params[:name]
     email = params[:email]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VaccinatePetsController < ApplicationController
   include QuantityHelper
   include PaymentSuccessRedirectHelper
@@ -7,14 +9,14 @@ class VaccinatePetsController < ApplicationController
       success_url: success_vaccinate_pets_url,
       cancel_url: donate_url,
       price: ENV['STRIPE_VACCINATE_PET_PRICE_ID'],
-      quantity: quantity
+      quantity:
     )
 
     respond_to do |format|
       if result.success?
         format.html { redirect_to result.session_url, allow_other_host: true }
       else
-        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: "Something went wrong!" }
+        format.html { render :'pages/wishlist', status: :unprocessable_entity, alert: 'Something went wrong!' }
       end
     end
   end
@@ -22,6 +24,6 @@ class VaccinatePetsController < ApplicationController
   def success
     donate_page_success_redirect
   end
-  def cancel
-  end
+
+  def cancel; end
 end

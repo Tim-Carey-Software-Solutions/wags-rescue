@@ -16,7 +16,7 @@
   <div class="drawer-side">
     <label for="my-drawer-2" class="drawer-overlay"></label>
 
-    <ul class="menu p-4 w-64 h-full bg-base-100 text-base-content">
+    <ul data-controller="dropdown" class="menu p-4 w-64 h-full bg-base-100 text-base-content">
       <%= link_to root_path, class: "btn flex justify-start mb-2 btn-ghost normal-case text-xl" do %>
         <%= image_tag "wags_logo.png", class: "w-10 h-10 mr-2" %>
         Wags Rescue

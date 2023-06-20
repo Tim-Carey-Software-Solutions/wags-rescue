@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # All Administrate controllers inherit from this
 # `Administrate::ApplicationController`, making it the ideal place to put
 # authentication logic or other before_actions.
@@ -14,7 +16,7 @@ module Admin
     private
 
     def user_not_authorized
-      flash[:alert] = "You are not authorized to perform this action."
+      flash[:alert] = 'You are not authorized to perform this action.'
       redirect_back(fallback_location: root_path)
     end
   end
