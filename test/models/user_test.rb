@@ -13,6 +13,9 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  admin                  :boolean          default(FALSE)
+#  provider               :string
+#  uid                    :string
+#  name                   :string
 #
 require 'test_helper'
 

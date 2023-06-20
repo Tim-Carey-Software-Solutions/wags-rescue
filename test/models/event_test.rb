@@ -5,10 +5,11 @@
 # Table name: events
 #
 #  id         :bigint           not null, primary key
-#  when       :date
+#  name       :string
+#  location   :string
 #  start      :time
 #  end        :time
-#  location   :string
+#  when       :date
 #  address    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

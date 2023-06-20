@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     root to: 'events#index'
   end
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  devise_scope :user do
+    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_google_user_session
+  end
 
   resources :one_time_donations, :recurring_donations, :feed_homeless_pets, :vaccinate_pets, :stop_overpopulations,
             only: [:new] do
@@ -117,4 +121,6 @@ Rails.application.routes.draw do
   post '/send_email', to: 'contact#send_email', as: 'send_email'
 
   resources :adoption_applications
+  get 'login', to: 'logins#new'
+  get 'login/create', to: 'logins#create', as: :create_login
 end
