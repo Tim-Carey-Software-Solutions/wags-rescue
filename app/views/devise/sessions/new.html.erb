@@ -24,6 +24,7 @@
         </div>
       <% end %>
       <div class="flex-col card-actions items-center justify-center">
+        <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "btn btn-neutral" %>
         <%= render "devise/shared/links" %>
       </div>
     </div>
