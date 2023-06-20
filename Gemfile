@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.2.2'
 
 gem 'administrate'
 gem 'bootsnap', require: false
@@ -34,7 +34,6 @@ end
 group :development do
   gem 'dockerfile-rails', '>= 1.3'
   gem 'letter_opener'
-  gem 'ruby-lsp', require: false
   gem 'web-console'
 end
 
