@@ -1,0 +1,2 @@
+class FosterApplicationsController < ApplicationController
+end

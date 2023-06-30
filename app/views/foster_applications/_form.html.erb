@@ -1,4 +1,4 @@
-<%= form_with(model: AdoptionApplication) do |form| %>
+<%= form_with(model: FosterApplication) do |form| %>
   <div class="flex">
     <div class="form-control w-full max-w-xs">
       <label class="label">
@@ -594,7 +594,6 @@
       <%= form.radio_button :agree_to_heartworm, "No", class: "radio radio-primary" %>
     </label>
   </div>
-  <%= render "adoption_agreement" %>
   <div class="form-control w-full max-w-xs">
     <label for="">
       I understand and accept all responsibilities outlined above.
