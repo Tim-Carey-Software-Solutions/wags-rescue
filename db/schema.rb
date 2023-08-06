@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_29_220751) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_06_194900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -94,12 +94,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_220751) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.time "start"
-    t.time "end"
-    t.date "when"
-    t.string "address"
+    t.string "name", null: false
+    t.string "location", null: false
+    t.time "start", null: false
+    t.time "end", null: false
+    t.date "when", null: false
+    t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -168,8 +168,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_220751) do
     t.string "bring_dog_with_moving"
     t.string "wags_referrer"
     t.text "additional_information"
-    t.string "agree_to_heartworm"
-    t.string "accept_responsibilities"
     t.string "drivers_license"
     t.string "name_on_license"
     t.string "drivers_license_state"
@@ -185,10 +183,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_220751) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
     t.string "provider"
     t.string "uid"
     t.string "name"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
